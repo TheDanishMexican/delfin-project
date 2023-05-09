@@ -9,7 +9,15 @@
 </head>
 <header id="admin-header">
     <nav id="admin-nav">
-        <div id="grid-container-nav">
+        <div id="grid-container">
+            <div id="h1-container">
+                <h1>ADMIN</h1>
+            </div>
+            <div id="new-member-button-container">
+                <button id="new-member-button">Create new member</button>
+            </div>
+        </div>
+        <div id="grid-container-nav-menu">
             <div id="members-container">
                     <a href="/admin.html">Members page</a>
             </div> 
@@ -23,6 +31,15 @@
     </nav>
 </header>
 <body>
-    
+    <div id="member-object-container">
+
+    </div>
+    <dialog id="create-new-member-dialog">
+        <form action="" id="create-new-member-form">
+            
+        </form>
+    </dialog>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="display.js"></script>
 </body>
 </html>
