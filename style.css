@@ -26,13 +26,13 @@ h1 {
     text-align: center;
 }
 
-#grid-container {
+#grid-container-admin {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-#h1-container {
-    grid-column: 2;
+#new-member-button-container{
+    grid-column: 3;
 }
 
 .member-object {
@@ -58,5 +58,12 @@ h1 {
 
 .elite-swimmer-item{
     border: solid black;
+}
+
+#member-object-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 10px;
 }
 

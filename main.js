@@ -1,3 +1,4 @@
+import { showNewMemberDialog } from "./dialog.js";
 import { showAll, showFilteredSwimmers } from "./display.js";
 
 window.addEventListener("load", start);
@@ -5,8 +6,14 @@ window.addEventListener("load", start);
 const endpoint = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
 
 export async function start() {
+    const button = document.querySelector("#new-member-button");
     const memberData = await getData();
     const preparedArray = prepareData(memberData);
+    
+    if(button) {
+        button.addEventListener("click", showNewMemberDialog)
+    };
+
     showAll(preparedArray);
     showFilteredSwimmers();
 }
