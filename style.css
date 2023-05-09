@@ -1,0 +1,14 @@
+#login-form {
+    border: solid black;
+    padding: 10px;
+    width: 500px;
+}
+
+#grid-container-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 10px;
+}
