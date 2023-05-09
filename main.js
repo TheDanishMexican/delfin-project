@@ -1,4 +1,4 @@
-import { showAll } from "./display.js";
+import { showAll, showFilteredSwimmers } from "./display.js";
 
 window.addEventListener("load", start);
 
@@ -8,6 +8,7 @@ export async function start() {
     const memberData = await getData();
     const preparedArray = prepareData(memberData);
     showAll(preparedArray);
+    showFilteredSwimmers();
 }
 
 export async function getData() {

@@ -41,3 +41,22 @@ h1 {
     border: solid black;
 }
 
+#grid-container-nav-menu-coach {
+    background-color: aqua;
+}
+
+#coach-nav {
+    background-color: antiquewhite;
+}
+
+#elite-swimmers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.elite-swimmer-item{
+    border: solid black;
+}
+
