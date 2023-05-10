@@ -27,7 +27,7 @@ export function showOne(obj) {
     }  
 }
 
-export async function showCompetitionSwimmers() {
+export async function showForCoach() {
     const memberData = await getData();
     const preparedArray = prepareData(memberData);
     const filtered = preparedArray.filter(swimmer => swimmer.isCompetitionSwimmer === true);
@@ -35,7 +35,7 @@ export async function showCompetitionSwimmers() {
 }
 
 export async function showFilteredSwimmers() {
-    const array = await showCompetitionSwimmers();
+    const array = await showForCoach();
     for (const swimmer of array) {
         showSwimmer(swimmer);
     };
