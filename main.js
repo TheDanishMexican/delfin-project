@@ -1,5 +1,5 @@
-import { showNewMemberDialog } from "./dialog.js";
-import { showAll, showFilteredSwimmers } from "./display.js";
+import { showNewMemberDialog } from "./modules/dialog.js";
+import { showAll, showFilteredSwimmers } from "./modules/display.js";
 
 window.addEventListener("load", start);
 
