@@ -1,4 +1,4 @@
-import { getData, prepareData } from "./main.js";
+import { getData, prepareData } from "/main.js";
 
 export function showAll(array) {
     for (const member of array) {
