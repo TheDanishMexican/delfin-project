@@ -1,4 +1,4 @@
-import { CreateSubmitClicked } from "./submit.js";
+import { CreateSubmitClicked } from "./modules/submit.js";
 
 export function showNewMemberDialog() {
     const cancelBtn = document.querySelector("#cancel-button");

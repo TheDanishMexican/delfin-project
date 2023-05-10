@@ -1,5 +1,5 @@
-import { showNewMemberDialog } from "./dialog.js";
-import { showAll, showFilteredSwimmers } from "./display.js";
+import { showNewMemberDialog } from "./modules/dialog.js";
+import { showAll, showFilteredSwimmers } from "./modules/display.js";
 
 window.addEventListener("load", start);
 
@@ -27,6 +27,8 @@ export async function getData() {
         console.log("Bad response")
     }
 }
+/*---------------PREPARE------------*/
+// data prep for member data (getData)
 
 export function prepareData(obj) {
     const memberArray = [];
@@ -38,3 +40,19 @@ export function prepareData(obj) {
         return memberArray;
 }
 
+/*---------------UPDATE------------*/
+// Put request with member object to endpoint
+export async function updateMember(member, key, endpoint){
+const response = await fetch(`${endpoint}members/${key}.json`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({member}),
+})
+if (response.ok){
+    console.log("your member was updated");
+showToastMessage("Medlemmet er opdateret :-)");
+} else{
+    console.log("Error: member not updated");
+    showToastMessage("Hovsa sovsa, noget gik galt." <br> "Er det hele korrekt indtastet? ");
+}
+}
