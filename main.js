@@ -18,6 +18,8 @@ export async function start() {
     showFilteredSwimmers();
 }
 
+//*----CREATE----*//
+// create new member
 export async function getData() {
     const response = await fetch(`${endpoint}/members.json`)
     if(response.ok) {
@@ -27,6 +29,8 @@ export async function getData() {
         console.log("Bad response")
     }
 }
+/*---------------PREPARE------------*/
+// data prep for member data (getData)
 
 export function prepareData(obj) {
     const memberArray = [];
@@ -65,3 +69,19 @@ export async function createMember(fullName, age, address, phoneNumber, email, s
     };
 }
 
+/*---------------UPDATE------------*/
+// Put request with member object to endpoint
+export async function updateMember(member, key, endpoint){
+const response = await fetch(`${endpoint}members/${key}.json`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({member}),
+})
+if (response.ok){
+    console.log("your member was updated");
+showToastMessage("Medlemmet er opdateret :-)");
+} else{
+    console.log("Error: member not updated");
+    showToastMessage("Hovsa sovsa, noget gik galt." <br> "Er det hele korrekt indtastet? ");
+}
+}
