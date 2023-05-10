@@ -1,5 +1,7 @@
+import { validatePassword } from "/modules/validate.js";
 import { showNewMemberDialog } from "/modules/dialog.js";
 import { showAll, showFilteredSwimmers } from "/modules/display.js";
+import { showValidatePasswordDialog } from "/modules/display.js";
 
 window.addEventListener("load", start);
 
@@ -9,6 +11,16 @@ export async function start() {
     const button = document.querySelector("#new-member-button");
     const memberData = await getData();
     const preparedArray = prepareData(memberData);
+    const form = document.querySelector("#login-form");
+    const loginBtn = document.querySelector("#log-but");
+
+    if (loginBtn) {
+        loginBtn.addEventListener("click", showValidatePasswordDialog)
+    };
+
+    if (form) {
+        form.addEventListener("submit", validatePassword);
+    };
     
     if(button) {
         button.addEventListener("click", showNewMemberDialog)
