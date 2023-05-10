@@ -7,24 +7,24 @@ export function showAll(array) {
 }
 
 export function showOne(obj) {
-    const html = /*html*/ `
+  const html = /*html*/ `
     <div class="member-object">
-        <div class="personal-information">
-            <p>Name: ${obj.name}</p>
-            <p>Age: ${obj.age}</p>
-            <p>Address: ${obj.address}</p>
-        </div>
-        <div class="swim-information">
-            <p>Membership type: ${obj.membershipType}</p>
-            <p>Email: ${obj.email}</p>
-            <p>Phone number: ${obj.phoneNumber}</p>
-        </div>    
+      <div class="personal-information">
+        <p>Navn: ${obj.name}</p>
+        <p>Alder: ${obj.age}</p>
+        <p>Adresse: ${obj.address}</p>
+      </div>
+      <div class="swim-information">
+        <p>Medlemskabstype: ${obj.membershipType}</p>
+        <p>E-mail: ${obj.email}</p>
+        <p>Telefonnummer: ${obj.phoneNumber}</p>
+      </div>    
     </div>
-    `
-    if (document.querySelector("#member-object-container")) {
+  `
+  if (document.querySelector("#member-object-container")) {
     document.querySelector("#member-object-container")
-    .insertAdjacentHTML("beforeend", html);
-    }  
+      .insertAdjacentHTML("beforeend", html);
+  }  
 }
 
 export async function showForCoach() {
@@ -44,20 +44,20 @@ export async function showFilteredSwimmers() {
 export function showSwimmer(obj) {
     const html = /*html*/ `
     <div class="elite-swimmer-item">
-        <p>Name: ${obj.name}</p>
-        <p>Swimmer type: ${obj.swimmerType}</p>
-        <p>Membership type: ${obj.membershipType}</p>
-        <p>Disciplines:</p>
+        <p>Navn: ${obj.name}</p>
+        <p>Svømmertype: ${obj.swimmerType}</p>
+        <p>Medlemskabstype: ${obj.membershipType}</p>
+        <p>Discipliner:</p>
         <ul>
             ${obj.discipline ? obj.discipline.
-                map(discipline => `<li>${discipline}</li>`).join('') : 'None'}
+                map(discipline => `<li>${discipline}</li>`).join('') : 'Ingen'}
         </ul>
-        <p>Competition results:</p>
+        <p>Konkurrenceresultater:</p>
         <ul>
             ${obj.competitionResults ? obj.competitionResults.
-                map(result => `<li>Date: ${result.date}</li> <li>Discipline: 
-                ${result.discipline}</li> <li>Time: ${result.result} seconds</li>`)
-                .join('') : 'None'}
+                map(result => `<li>Dato: ${result.date}</li> <li>Disciplin: 
+                ${result.discipline}</li> <li>Tid: ${result.result} sekunder</li>`)
+                .join('') : 'Har ikke deltaget i konkurrencer endnu'}
         </ul>
     </div>    
     `

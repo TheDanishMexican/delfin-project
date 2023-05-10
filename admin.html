@@ -35,56 +35,58 @@
 
     </div>
     <dialog id="create-new-member-dialog">
+        <button type="button" id="cancel-button">X</button>
+        <br>
+        <br>
         <form action="" id="create-new-member-form">
-            <button type="button" id="cancel-button">X</button>
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required><br>
+        <label for="name">Fulde Navn:</label>
+        <input type="text" id="name" name="name" required><br>
 
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required><br>
+        <label for="age">Alder:</label>
+        <input type="number" id="age" name="age" required><br>
 
-            <label for="address">Address:</label>
-            <input type="text" id="address" name="address" required><br>
+        <label for="address">Adresse:</label>
+        <input type="text" id="address" name="address" required><br>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required><br>
+        <label for="phone">Telefonnummer:</label>
+        <input type="tel" id="phone" name="phone" required><br>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
 
-            <label for="swimmer-type">Swimmer Type:</label>
-            <select id="swimmer-type" name="swimmer-type" required>
-                <option value="">--Please select--</option>
-                <option value="senior">Senior</option>
-                <option value="junior">Junior</option>
-            </select><br>
+        <label for="swimmer-type">Svømmertype:</label>
+        <select id="swimmer-type" name="swimmer-type" required>
+            <option value="">--Vælg venligst--</option>
+            <option value="senior">Senior</option>
+            <option value="junior">Junior</option>
+        </select><br>
 
-            <label for="membership-type">Membership Type:</label>
-            <select id="membership-type" name="membership-type" required>
-                <option value="">--Please select--</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-            </select><br>
+        <label for="membership-type">Medlemstype:</label>
+        <select id="membership-type" name="membership-type" required>
+            <option value="">--Vælg venligst--</option>
+            <option value="active">Aktiv</option>
+            <option value="inactive">Inaktiv</option>
+        </select><br>
 
-            <label for="competition-swimmer">Competition Swimmer:</label>
-            <input type="checkbox" id="competition-swimmer" name="competition-swimmer"><br>
+        <label for="amount-owed">Skyldig Beløb:</label>
+        <input type="number" id="amount-owed" name="amount-owed" required><br>
 
-            <label for="disciplines">Discipline(s):</label>
-                <select id="disciplines" name="disciplines" required>
-                    <option value="">--Please select--</option>
-                    <option value="crawl">Crawl</option>
-                    <option value="butterfly">Butterfly</option>
-                    <option value="brystsvømning">Brystsvømning</option>
-                    <option value="rygsvømning">Rygsvømning</option>
-                </select><br>
+        <label for="owes-money">Skylder Penge:</label>
+        <input type="checkbox" id="owes-money" name="owes-money"><br>
 
-            <label for="amount-owed">Amount Owed:</label>
-            <input type="number" id="amount-owed" name="amount-owed" required><br>
+        <p>Udfyld kun nedenstående hvis medlem <br> er konkurrencesvømmer.</p>
 
-            <label for="owes-money">Owes Money:</label>
-            <input type="checkbox" id="owes-money" name="owes-money"><br>
+        <label for="competition-swimmer">Konkurrencesvømmer:</label>
+        <input type="checkbox" id="competition-swimmer" name="competition-swimmer"><br>
 
-            <button id="new-member-form-submit-button">Submit</button>  
+        <label>Disciplin(er):</label> <br>
+        <input type="checkbox" name="disciplines[]" value="crawl">Crawl<br>
+        <input type="checkbox" name="disciplines[]" value="butterfly">Butterfly<br>
+        <input type="checkbox" name="disciplines[]" value="brystsvømning">Brystsvømning<br>
+        <input type="checkbox" name="disciplines[]" value="rygsvømning">Rygsvømning<br>
+
+        <br>
+        <button id="new-member-form-submit-button">Opret</button>  
         </form>
     </dialog>
     <script type="module" src="main.js"></script>

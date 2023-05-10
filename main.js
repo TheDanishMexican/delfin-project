@@ -38,3 +38,30 @@ export function prepareData(obj) {
         return memberArray;
 }
 
+export async function createMember(fullName, age, address, phoneNumber, email, swimmerType,
+    membershipType, competitionSwimmer, discipline, amountOwed, owesMoney) {
+    const newMemberObj = {
+        address: address,
+        age: age,
+        amountOwed: amountOwed,
+        discipline: discipline,
+        email: email,
+        isCompetitionSwimmer: competitionSwimmer,
+        membershipType: membershipType,
+        name: fullName,
+        owesMoney: owesMoney,
+        phoneNumber: phoneNumber,
+        swimmerType: swimmerType,
+    };
+    const json = JSON.stringify(newMemberObj);
+    const response = await fetch(`${endpoint}/members.json`, 
+        {
+            method: "POST",
+            body: json
+        }
+    );
+    if (response.ok) {
+        console.log(newMemberObj)
+    };
+}
+
