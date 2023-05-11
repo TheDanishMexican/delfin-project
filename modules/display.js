@@ -18,8 +18,9 @@ export function showOne(obj) {
         <p>Medlemskabstype: ${obj.membershipType}</p>
         <p>E-mail: ${obj.email}</p>
         <p>Telefonnummer: ${obj.phoneNumber}</p>
-      </div>    
-    </div>
+        <button id="edit-btn">Ret oplysninger?</button>
+      </div>  
+      </div>
   `
   if (document.querySelector("#member-object-container")) {
     document.querySelector("#member-object-container")
