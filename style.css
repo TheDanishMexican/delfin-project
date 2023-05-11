@@ -1,11 +1,46 @@
 #login-body {
     background-color:aquamarine;
+    height: 100vh;
+    width: 100%;  
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 
-#login-button-container{
-    grid-row: 2;
+#welcome-message{
+    text-align: center;
     grid-column: 2;
+    grid-row: 1;
 }
+
+#welcome-message-container{
+    background-color: aliceblue;
+    height: 20%;
+    border-radius: 10px;
+}
+
+#log-but{
+    height: 50%;
+    width: 25%;
+    border-radius: 10px;
+    font-size: larger;
+}
+
+#log-but:hover{
+    background-color: lightgrey;
+}
+
+body{
+    margin: 0;
+}
+
+
+
+#login-button-container{
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+}    
 
 #grid-container-nav-menu {
     display: grid;
