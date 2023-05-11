@@ -106,6 +106,10 @@ export function showDeleteDialog(obj) {
   document.querySelector("#delete-dialog").showModal();
 }
 
+export function closeDeleteDialog(){
+  document.querySelector("#delete-dialog").close();
+}
+
 
 
 

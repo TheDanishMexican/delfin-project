@@ -6,6 +6,7 @@ import { showTop5Dialog } from "/modules/display.js";
 import { closeTop5Dialog } from "/modules/display.js";
 import { showTop5Swimmers } from "/modules/display.js";
 import {deleteMemberClicked} from "/modules/submit.js";
+import{closeDeleteDialog} from"/modules/display.js"
 
 window.addEventListener("load", start);
 
@@ -21,6 +22,8 @@ export async function start() {
     const closeBtnInTop5 = document.querySelector("#close-top-5-btn");
     const FormInTop5 = document.querySelector("#top-five-form");
     const Delete = document.querySelector("#form-delete");
+    const deleteCancel=document.querySelector(".btn-cancel");
+    
 
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -48,7 +51,12 @@ export async function start() {
 
     if(Delete){
   Delete.addEventListener("submit", deleteMemberClicked);
-  
+  };
+
+    if(deleteCancel){
+  Delete.addEventListener("click", closeDeleteDialog);
+  };
+
     showAll(preparedArray);
     showFilteredSwimmers();
     
@@ -56,7 +64,6 @@ export async function start() {
 
     
 
-}
 
 //*----CREATE----*//
 // create new member
