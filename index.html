@@ -6,20 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login page</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
 </head>
 <body>
-    <div id="login-box-container">
-        <div id="login-form-container">
-            <form action="" id="login-form">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username-input" placeholder="Type username">
-                <label for="">Login:</label>
-                <input type="password" name="password" id="password-input" placeholder="Password">
-                <button id="submit-button">Submit</button>
-            </form>
+    <div id="login-body">
+        <div id="welcome-message">
+            <div id="welcome-message-container">
+                <h2>Velkommen til Delfinen svømmeklubs administrationssystem</h2>
+            </div> 
         </div>
+        <div id="login-button-container">
+            <button id="log-but">Login</button>
+        </div>
+        <dialog id="login-dialog">
+            <div id="login-box-container">
+                <div id="login-form-container">
+                    <form action="" id="login-form">
+                        <label for="username">Brugernavn:</label>
+                        <input type="text" name="username" id="username-input" placeholder="Indtast brugernavn">
+                        <label for="">Kode:</label>
+                        <input type="password" name="password" id="password-input" placeholder="Indtast kode">
+                        <button id="submit-button">Login</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
     </div>
-      <script type="module" src="main.js"></script>
+    <script type="module" src="main.js"></script>
     <script type="module" src="modules/dialog.js"></script>
     <script type="module" src="modules/display.js"></script>
     <script type="module" src="modules/filter.js"></script>

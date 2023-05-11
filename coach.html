@@ -22,10 +22,26 @@
     </nav>
 </header>
 <body>
-    <div id="elite-swimmers-container">
-
+    <div id="elite-swimmers-container"></div>
+    <div id="top-five-button">
+        <button>Vis top 5 svømmere</button>
     </div>
-      <script type="module" src="main.js"></script>
+    <dialog id="top-five-dialog" >
+        <button id="close-top-5-btn">X</button>
+        <form action="" id="top-five-form">
+            <h3>Vælg den disciplin du vil se top 5 for:</h3>
+            <label for="discipline">Disciplin:</label>
+            <select id="discipline" name="discipline">
+            <option value="">--Vælg en--</option>
+            <option value="crawl">Crawl</option>
+            <option value="butterfly">Butterfly</option>
+            <option value="brystsvømning">Brystsvømning</option>
+            <option value="rygsvømning">Rygsvømning</option>
+            </select>
+            <button>Vælg</button>  
+        </form>
+    </dialog>
+    <script type="module" src="main.js"></script>
     <script type="module" src="modules/dialog.js"></script>
     <script type="module" src="modules/display.js"></script>
     <script type="module" src="modules/filter.js"></script>
