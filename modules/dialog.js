@@ -20,6 +20,7 @@ export function closeNewMemberDialog() {
 }
 
 export function showEditMemberDialog(){
+    
 console.log("Åh min ven, du gjorde det med EDIT");  
 }
 
