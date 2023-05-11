@@ -1,3 +1,4 @@
+import { deleteMemberClicked } from "./submit.js";
 import { CreateSubmitClicked } from "/modules/submit.js";
 
 export function showNewMemberDialog() {
@@ -30,5 +31,6 @@ export function deleteClicked(obj) {
       .querySelector("#form-delete-member")
       .setAttribute("data-id", obj.id);
 
+      
     document.querySelector("#dialog-delete-member").showModal();
   }

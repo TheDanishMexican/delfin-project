@@ -92,7 +92,7 @@ showToastMessage("Medlemmet er opdateret :-)");
 }
 }
 
-export async function deleteMember(id) {
+export async function deleteMember(id,endpoint) {
   // DELETE fetch request
   const response = await fetch(`${endpoint}/members/${id}.json`, {
     method: "DELETE",
@@ -103,4 +103,5 @@ export async function deleteMember(id) {
     console.log("Nice deleted");
 
   }
+  return response;
 }

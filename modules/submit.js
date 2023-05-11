@@ -36,6 +36,7 @@ export function CreateSubmitClicked(event) {
 
 export function deleteMemberClicked(event) {
   const id = event.target.getAttribute("data-id"); // event.target is the delete form
+  console.log(id)
   deleteMember(id); // call deletePost with id
 }
 
