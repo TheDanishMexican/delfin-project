@@ -18,3 +18,8 @@ export function closeNewMemberDialog() {
     dialog.close();
     form.reset();
 }
+
+export function showEditMemberDialog(){
+console.log("Åh min ven, du gjorde det med EDIT");  
+}
+

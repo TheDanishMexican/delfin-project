@@ -2,9 +2,9 @@ import { validatePassword } from "/modules/validate.js";
 import { showNewMemberDialog } from "/modules/dialog.js";
 import { showAll, showFilteredSwimmers } from "/modules/display.js";
 import { showValidatePasswordDialog } from "/modules/display.js";
-import { showTop5Dialog } from "/modules/display.js";
-import { closeTop5Dialog } from "/modules/display.js";
-import { showTop5Swimmers } from "/modules/display.js";
+import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
+import { showEditMemberDialog } from "./modules/dialog.js";
+
 
 window.addEventListener("load", start);
 
@@ -19,6 +19,7 @@ export async function start() {
     const buttonTop5 = document.querySelector("#top-five-button");
     const closeBtnInTop5 = document.querySelector("#close-top-5-btn");
     const FormInTop5 = document.querySelector("#top-five-form");
+    const editBtn = document.querySelector(".edit-btn");
 
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -30,6 +31,7 @@ export async function start() {
     
     if(button) {
         button.addEventListener("click", showNewMemberDialog)
+        
     };
 
     if (buttonTop5) {
@@ -42,6 +44,10 @@ export async function start() {
 
     if(FormInTop5) {
         FormInTop5.addEventListener("submit", showTop5Swimmers);
+    };
+    if(editBtn) {
+        FormInTop5.addEventListener("submit", showEditMemberDialog);
+        console.log("jeg virker også");
     };
 
     showAll(preparedArray);
