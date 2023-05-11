@@ -18,3 +18,17 @@ export function closeNewMemberDialog() {
     dialog.close();
     form.reset();
 }
+
+export function deleteClicked(obj) {
+    console.log("delete button clicked");
+    console.log(obj);
+    // to do
+    document.querySelector("#dialog-delete-member-title").textContent =
+      obj.name;
+
+    document
+      .querySelector("#form-delete-member")
+      .setAttribute("data-id", obj.id);
+
+    document.querySelector("#dialog-delete-member").showModal();
+  }

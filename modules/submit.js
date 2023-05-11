@@ -1,5 +1,6 @@
 import { closeNewMemberDialog } from "/modules/dialog.js";
 import { createMember } from "/main.js";
+import { deleteMember } from "../main.js";
 
 export function CreateSubmitClicked(event) {
     event.preventDefault();
@@ -32,4 +33,11 @@ export function CreateSubmitClicked(event) {
 
     
 }
+
+export function deleteMemberClicked(event) {
+  const id = event.target.getAttribute("data-id"); // event.target is the delete form
+  deleteMember(id); // call deletePost with id
+}
+
+
 

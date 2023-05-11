@@ -1,3 +1,5 @@
+import { deleteClicked } from "./dialog.js";
+import { deleteMemberClicked } from "./submit.js";
 import { getData, prepareData } from "/main.js";
 
 export function showAll(array) {
@@ -19,6 +21,7 @@ export function showOne(obj) {
         <p>E-mail: ${obj.email}</p>
         <p>Telefonnummer: ${obj.phoneNumber}</p>
         <button id="edit-btn">Ret oplysninger?</button>
+        <button class="btn-delete">Slet</button>
       </div>  
       </div>
   `
@@ -26,6 +29,8 @@ export function showOne(obj) {
     document.querySelector("#member-object-container")
       .insertAdjacentHTML("beforeend", html);
   }  
+  document
+    .querySelector("#member-object-container div:last-child .btn-delete").addEventListener("click", () => deleteClicked(obj));
 }
 
 export async function showForCoach() {

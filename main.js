@@ -1,3 +1,5 @@
+import { deleteClicked } from "./modules/dialog.js";
+import { deleteMemberClicked } from "./modules/submit.js";
 import { showNewMemberDialog } from "/modules/dialog.js";
 import { showAll, showFilteredSwimmers } from "/modules/display.js";
 
@@ -16,6 +18,10 @@ export async function start() {
 
     showAll(preparedArray);
     showFilteredSwimmers();
+
+    document
+    .querySelector("#form-delete-member")
+    .addEventListener("submit", deleteMemberClicked);
 }
 
 //*----CREATE----*//
@@ -84,4 +90,17 @@ showToastMessage("Medlemmet er opdateret :-)");
     console.log("Error: member not updated");
     showToastMessage("Hovsa sovsa, noget gik galt." <br> "Er det hele korrekt indtastet? ");
 }
+}
+
+export async function deleteMember(id) {
+  // DELETE fetch request
+  const response = await fetch(`${endpoint}/members/${id}.json`, {
+    method: "DELETE",
+  });
+
+  // check if response is ok - if the response is successful
+  if (response.ok) {
+    console.log("Nice deleted");
+
+  }
 }
