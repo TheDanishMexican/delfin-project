@@ -74,6 +74,22 @@ export function showValidatePasswordDialog() {
 
 }
 
+export function showTop5Dialog() {
+  const dialog = document.querySelector("#top-five-dialog");
+  dialog.showModal();
+}
+
+export function closeTop5Dialog() {
+  const dialog = document.querySelector("#top-five-dialog");
+  dialog.close();
+}
+
+export function showTop5Swimmers(event) {
+  event.preventDefault()
+  const discipline = event.target.discipline;
+
+  console.log(discipline.value);
+}
 
 
 
