@@ -68,6 +68,12 @@ export function showSwimmer(obj) {
     };
 }
 
+export function showValidatePasswordDialog() {
+  const dialog = document.querySelector("#login-dialog");
+  dialog.showModal();
+
+}
+
 
 
 

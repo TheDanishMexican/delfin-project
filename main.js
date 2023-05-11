@@ -11,17 +11,6 @@ export async function start() {
     const addMemberBtn = document.querySelector("#new-member-button");
     const memberData = await getData();
     const preparedArray = prepareData(memberData);
-    const form = document.querySelector("#login-form");
-    const loginBtn = document.querySelector("#log-but");
-    const editBtn= document.querySelector(".edit-btn");
-
-    if (loginBtn) {
-        loginBtn.addEventListener("click", showValidatePasswordDialog)
-    };
-
-    if (form) {
-        form.addEventListener("submit", validatePassword);
-    };
     
     if(addMemberBtn) {
         addMemberBtn.addEventListener("click", showNewMemberDialog)
