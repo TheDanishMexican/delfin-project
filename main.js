@@ -1,17 +1,33 @@
+import { validatePassword } from "/modules/validate.js";
 import { showNewMemberDialog } from "/modules/dialog.js";
 import { showAll, showFilteredSwimmers } from "/modules/display.js";
+import { showValidatePasswordDialog } from "/modules/display.js";
 
 window.addEventListener("load", start);
 
 const endpoint = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
 
 export async function start() {
-    const button = document.querySelector("#new-member-button");
+    const addMemberBtn = document.querySelector("#new-member-button");
     const memberData = await getData();
     const preparedArray = prepareData(memberData);
+    const form = document.querySelector("#login-form");
+    const loginBtn = document.querySelector("#log-but");
+    const editBtn= document.querySelector(".edit-btn");
+
+    if (loginBtn) {
+        loginBtn.addEventListener("click", showValidatePasswordDialog)
+    };
+
+    if (form) {
+        form.addEventListener("submit", validatePassword);
+    };
     
-    if(button) {
-        button.addEventListener("click", showNewMemberDialog)
+    if(addMemberBtn) {
+        addMemberBtn.addEventListener("click", showNewMemberDialog)
+    };
+    if (editBtn) {
+        editBtn.addEventListener("click", showEditDialog)
     };
 
     showAll(preparedArray);
@@ -70,7 +86,7 @@ export async function createMember(fullName, age, address, phoneNumber, email, s
 }
 
 /*---------------UPDATE------------*/
-// Put request with member object to endpoint
+// Patch request with member object to endpoint
 export async function updateMember(member, key, endpoint){
 const response = await fetch(`${endpoint}members/${key}.json`, {
     method: "PATCH",
