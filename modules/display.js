@@ -18,7 +18,7 @@ export function showOne(obj) {
         <p>Medlemskabstype: ${obj.membershipType}</p>
         <p>E-mail: ${obj.email}</p>
         <p>Telefonnummer: ${obj.phoneNumber}</p>
-        <button id="edit-btn">Ret oplysninger?</button>
+        <button class="edit-btn">Ret oplysninger?</button>
       </div>  
       </div>
   `
