@@ -90,7 +90,12 @@
         </form>
     </dialog>
     <dialog id="delete-dialog">
-        <p>This is a delete dialog</p>
+        <p>Vil du slette dette medlem?</p>
+        <p id="dialog-delete-title"></p>
+        <form method="dialog" id="form-delete">
+        <button type="button" class="btn-cancel">No</button>
+        <button>Yes</button>
+      </form>
     </dialog>
     <script type="module" src="main.js"></script>
     <script type="module" src="modules/dialog.js"></script>

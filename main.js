@@ -5,6 +5,7 @@ import { showValidatePasswordDialog } from "/modules/display.js";
 import { showTop5Dialog } from "/modules/display.js";
 import { closeTop5Dialog } from "/modules/display.js";
 import { showTop5Swimmers } from "/modules/display.js";
+import {deleteMemberClicked} from "/modules/submit.js";
 
 window.addEventListener("load", start);
 
@@ -19,6 +20,7 @@ export async function start() {
     const buttonTop5 = document.querySelector("#top-five-button");
     const closeBtnInTop5 = document.querySelector("#close-top-5-btn");
     const FormInTop5 = document.querySelector("#top-five-form");
+    const Delete = document.querySelector("#form-delete");
 
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -44,12 +46,16 @@ export async function start() {
         FormInTop5.addEventListener("submit", showTop5Swimmers);
     };
 
+    if(Delete){
+  Delete.addEventListener("submit", deleteMemberClicked);
+  
     showAll(preparedArray);
     showFilteredSwimmers();
+    
+}
 
-    document
-    .querySelector("#form-delete-member")
-    .addEventListener("submit", deleteMemberClicked);
+    
+
 }
 
 //*----CREATE----*//
@@ -70,8 +76,10 @@ export function prepareData(obj) {
     const memberArray = [];
     for (const key in obj) {
         const member = obj[key];
+        if(member!== null){
         member["id"] = key;
         memberArray.push(member);
+        }
     }
         return memberArray;
 }
@@ -117,6 +125,18 @@ showToastMessage("Medlemmet er opdateret :-)");
 } else{
     console.log("Error: member not updated");
     showToastMessage("Hovsa sovsa, noget gik galt." <br> "Er det hele korrekt indtastet? ");
+}
+}
+
+// DELETE
+export async function deleteMember(id){
+     const response = await fetch(`${endpoint}/members/${id}.json`, {
+    method: "DELETE",
+  });
+
+  // check if response is ok - if the response is successful
+  if (response.ok) {
+    console.log("Nice deleted");
 }
 }
 

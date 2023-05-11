@@ -1,6 +1,6 @@
-import { deleteClicked } from "./dialog.js";
-import { deleteMemberClicked } from "./submit.js";
+
 import { getData, prepareData } from "/main.js";
+
 
 export function showAll(array) {
     for (const member of array) {
@@ -101,6 +101,8 @@ export function showTop5Swimmers(event) {
 
 export function showDeleteDialog(obj) {
   console.log(obj);
+  document.querySelector("#dialog-delete-title").textContent=obj.name;
+  document.querySelector("#form-delete").setAttribute("data-id",obj.id);
   document.querySelector("#delete-dialog").showModal();
 }
 
