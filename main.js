@@ -2,6 +2,9 @@ import { validatePassword } from "/modules/validate.js";
 import { showNewMemberDialog } from "/modules/dialog.js";
 import { showAll, showFilteredSwimmers } from "/modules/display.js";
 import { showValidatePasswordDialog } from "/modules/display.js";
+import { showTop5Dialog } from "/modules/display.js";
+import { closeTop5Dialog } from "/modules/display.js";
+import { showTop5Swimmers } from "/modules/display.js";
 
 window.addEventListener("load", start);
 
@@ -13,7 +16,9 @@ export async function start() {
     const preparedArray = prepareData(memberData);
     const form = document.querySelector("#login-form");
     const loginBtn = document.querySelector("#log-but");
-    const editBtn = document.querySelector(".edit-btn");
+    const buttonTop5 = document.querySelector("#top-five-button");
+    const closeBtnInTop5 = document.querySelector("#close-top-5-btn");
+    const FormInTop5 = document.querySelector("#top-five-form");
 
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -26,8 +31,17 @@ export async function start() {
     if(button) {
         button.addEventListener("click", showNewMemberDialog)
     };
-    if(editBtn) {
-        editBtn.addEventListener("click", showEditMemberDialog)
+
+    if (buttonTop5) {
+        buttonTop5.addEventListener("click", showTop5Dialog);
+    };
+
+    if(closeBtnInTop5) {
+        closeBtnInTop5.addEventListener("click", closeTop5Dialog);
+    };
+
+    if(FormInTop5) {
+        FormInTop5.addEventListener("submit", showTop5Swimmers);
     };
 
     showAll(preparedArray);
@@ -101,3 +115,5 @@ showToastMessage("Medlemmet er opdateret :-)");
     showToastMessage("Hovsa sovsa, noget gik galt." <br> "Er det hele korrekt indtastet? ");
 }
 }
+
+

@@ -8,6 +8,7 @@ export function showAll(array) {
 
 export function showOne(obj) {
   const html = /*html*/ `
+  <section>
     <div class="member-object">
       <div class="personal-information">
         <p>Navn: ${obj.name}</p>
@@ -18,14 +19,19 @@ export function showOne(obj) {
         <p>Medlemskabstype: ${obj.membershipType}</p>
         <p>E-mail: ${obj.email}</p>
         <p>Telefonnummer: ${obj.phoneNumber}</p>
-        <button class="edit-btn">Ret oplysninger?</button>
+        <button class="delete-btn">Slet</button>
       </div>  
-      </div>
+    </div>
+  </section>  
   `
-  if (document.querySelector("#member-object-container")) {
+  if(document.querySelector("#member-object-container")) {
+
     document.querySelector("#member-object-container")
       .insertAdjacentHTML("beforeend", html);
-  }  
+
+    document.querySelector("#member-object-container section:last-child .delete-btn")
+      .addEventListener("click", () => showDeleteDialog(obj));
+  } 
 }
 
 export async function showForCoach() {
@@ -74,8 +80,27 @@ export function showValidatePasswordDialog() {
 
 }
 
+export function showTop5Dialog() {
+  const dialog = document.querySelector("#top-five-dialog");
+  dialog.showModal();
+}
 
+export function closeTop5Dialog() {
+  const dialog = document.querySelector("#top-five-dialog");
+  dialog.close();
+}
 
+export function showTop5Swimmers(event) {
+  event.preventDefault()
+  const discipline = event.target.discipline;
+
+  console.log(discipline.value);
+}
+
+export function showDeleteDialog(obj) {
+  console.log(obj);
+  document.querySelector("#delete-dialog").showModal();
+}
 
 
 
