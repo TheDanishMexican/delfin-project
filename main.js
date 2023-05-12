@@ -55,6 +55,14 @@ export async function start() {
         console.log("jeg virker også");
     };
 
+    if (Delete) {
+        Delete.addEventListener("submit", deleteMemberClicked); 
+    }
+
+    if(deleteCancel){
+        deleteCancel.addEventListener("click",closeDeleteDialog);
+    }
+
     showAll(preparedArray);
     showFilteredSwimmers();
     
