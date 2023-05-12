@@ -1,4 +1,4 @@
-import { closeNewMemberDialog } from "/modules/dialog.js";
+// import { closeNewMemberDialog } from "/modules/dialog.js";
 import { createMember } from "/main.js";
 
 export function CreateSubmitClicked(event) {
