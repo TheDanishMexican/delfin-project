@@ -1,5 +1,6 @@
 
 import { getData, prepareData } from "/main.js";
+import { showEditMemberDialog } from "/modules/dialog.js";
 
 
 export function showAll(array) {
@@ -22,7 +23,8 @@ export function showOne(obj) {
         <p>E-mail: ${obj.email}</p>
         <p>Telefonnummer: ${obj.phoneNumber}</p>
         <button class="delete-btn">Slet</button>
-      </div>  
+      <button class="edit-btn">Ret oplysninger, min ven?</button>
+        </div>  
     </div>
   </section>  
   `
@@ -33,6 +35,9 @@ export function showOne(obj) {
 
     document.querySelector("#member-object-container section:last-child .delete-btn")
       .addEventListener("click", () => showDeleteDialog(obj));
+    
+    document.querySelector("#member-object-container section:last-child .edit-btn").addEventListener("click", () => showEditMemberDialog());
+    
   } 
 }
 
@@ -109,6 +114,7 @@ export function showDeleteDialog(obj) {
 export function closeDeleteDialog(){
   document.querySelector("#delete-dialog").close();
 }
+
 
 
 

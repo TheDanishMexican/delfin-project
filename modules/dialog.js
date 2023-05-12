@@ -34,3 +34,9 @@ export function deleteClicked(obj) {
       
     document.querySelector("#dialog-delete-member").showModal();
   }
+export function showEditMemberDialog(){
+    document.querySelector("#edit-dialog").showModal()
+console.log("Åh min ven, du gjorde det med EDIT");  
+}
+
+

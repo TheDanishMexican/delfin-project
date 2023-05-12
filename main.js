@@ -2,9 +2,9 @@ import { validatePassword } from "/modules/validate.js";
 import { showNewMemberDialog } from "/modules/dialog.js";
 import { showAll, showFilteredSwimmers } from "/modules/display.js";
 import { showValidatePasswordDialog } from "/modules/display.js";
-import { showTop5Dialog } from "/modules/display.js";
-import { closeTop5Dialog } from "/modules/display.js";
-import { showTop5Swimmers } from "/modules/display.js";
+import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
+import { showEditMemberDialog } from "./modules/dialog.js";
+
 import {deleteMemberClicked} from "/modules/submit.js";
 import{closeDeleteDialog} from"/modules/display.js"
 
@@ -24,6 +24,7 @@ export async function start() {
     const Delete = document.querySelector("#form-delete");
     const deleteCancel=document.querySelector(".btn-cancel");
     
+    const editBtn = document.querySelector(".edit-btn");
 
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -35,6 +36,7 @@ export async function start() {
     
     if(button) {
         button.addEventListener("click", showNewMemberDialog)
+        
     };
 
     if (buttonTop5) {
@@ -48,14 +50,10 @@ export async function start() {
     if(FormInTop5) {
         FormInTop5.addEventListener("submit", showTop5Swimmers);
     };
-
-    if(Delete){
-  Delete.addEventListener("submit", deleteMemberClicked);
-  };
-
-    if(deleteCancel){
-  Delete.addEventListener("click", closeDeleteDialog);
-  };
+    if(editBtn) {
+        FormInTop5.addEventListener("submit", showEditMemberDialog);
+        console.log("jeg virker også");
+    };
 
     showAll(preparedArray);
     showFilteredSwimmers();
