@@ -1,3 +1,5 @@
+
+import { submitResultDisciplineClicked } from "./submit.js";
 import { CreateSubmitClicked } from "/modules/submit.js";
 
 export function showNewMemberDialog() {
@@ -24,4 +26,25 @@ export function showEditMemberDialog(){
 console.log("Åh min ven, du gjorde det med EDIT");  
 }
 
+export function showAddResultDialog(obj) {
+  
+  const dialog = document.querySelector("#dialog-add-swim-results");
+  const form = document.querySelector("#form-add-svim-results");
+  form.setAttribute("swimmer-id", obj.id)
+  form.name.value = obj.name;
+  
+ if (!obj.competitionResults) { 
+  obj.competitionResults = [{ 
+    date:"",
+    discipline:"",                  
+    result:"" 
+  } ]
+}
+
+  dialog.showModal();
+
+  document.querySelector("#form-add-svim-results")
+    .addEventListener("submit", submitResultDisciplineClicked);
+
+}
 

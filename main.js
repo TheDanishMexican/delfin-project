@@ -59,7 +59,7 @@ export async function start() {
 export async function getData() {
     const response = await fetch(`${endpoint}/members.json`)
     if(response.ok) {
-        const data = response.json();
+        const data = await response.json();
         return data;
     } else {
         console.log("Bad response")
@@ -101,7 +101,7 @@ export async function createMember(fullName, age, address, phoneNumber, email, s
         }
     );
     if (response.ok) {
-        console.log(newMemberObj)
+        console.log("New member created")
     };
 }
 
@@ -120,6 +120,28 @@ showToastMessage("Medlemmet er opdateret :-)");
     console.log("Error: member not updated");
     showToastMessage("Hovsa sovsa, noget gik galt." <br> "Er det hele korrekt indtastet? ");
 }
+}
+
+export async function updateSwimResults(id, date, discipline, time) {
+  const updatedSwimmer = {
+        competitionResults: [
+        {
+        date: date,
+        discipline: discipline,
+        result: time
+        }]
+  };
+
+  const stringified = JSON.stringify(updatedSwimmer);
+  const response = await fetch(`${endpoint}/members/${id}.json`, {
+    method: "PATCH",
+    body: stringified
+  });
+
+  if (response.ok) {
+    console.log("Results added");
+  } else (console.log("Error in results added"));
+
 }
 
 
