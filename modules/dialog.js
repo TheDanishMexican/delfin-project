@@ -21,6 +21,7 @@ export function closeNewMemberDialog() {
 
 export function showEditMemberDialog(){
     document.querySelector("#edit-dialog").showModal()
+    
 console.log("Åh min ven, du gjorde det med EDIT");  
 }
 
