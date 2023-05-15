@@ -24,7 +24,10 @@
 <body>
     <div id="elite-swimmers-container"></div>
     <div id="top-five-button">
-        <button>Vis top 5 svømmere</button>
+        <button>Vis top 5 senior svømmere</button>
+    </div>
+    <div id="top-five-junior-button">
+        <button>Vis top 5 junior svømmere</button>
     </div>
     <dialog id="top-five-dialog" >
         <button id="close-top-5-btn">X</button>
@@ -32,6 +35,21 @@
             <h3>Vælg den disciplin du vil se top 5 for:</h3>
             <label for="discipline">Disciplin:</label>
             <select id="discipline" name="discipline">
+                <option value="">--Vælg en--</option>
+                <option value="crawl">Crawl</option>
+                <option value="butterfly">Butterfly</option>
+                <option value="brystsvømning">Brystsvømning</option>
+                <option value="rygsvømning">Rygsvømning</option>
+            </select>
+            <button>Vælg</button>  
+        </form>
+    </dialog>
+    <dialog id="top-five-dialog-junior" >
+        <button id="close-top-5-btn-junior">X</button>
+        <form action="" id="top-five-form">
+            <h3>Vælg den disciplin du vil se top 5 for:</h3>
+            <label for="discipline">Disciplin:</label>
+            <select id="discipline-junior" name="discipline">
                 <option value="">--Vælg en--</option>
                 <option value="crawl">Crawl</option>
                 <option value="butterfly">Butterfly</option>

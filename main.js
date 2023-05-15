@@ -4,6 +4,7 @@ import { showAll, showFilteredSwimmers } from "/modules/display.js";
 import { showValidatePasswordDialog } from "/modules/display.js";
 import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
 import { showEditMemberDialog } from "./modules/dialog.js";
+import { CloseTop5JuniorDialog, showTop5JuniorDialog } from "./modules/display.js";
 
 
 window.addEventListener("load", start);
@@ -21,10 +22,20 @@ export async function start() {
     const FormInTop5 = document.querySelector("#top-five-form");
     const editBtn = document.querySelector(".edit-btn");
     const exitBtns = document.querySelectorAll(`button[id^=close]`);
+    const showTop5JuniorBtn = document.querySelector("#top-five-junior-button");
+    const closeTop5JuniorBtn = document.querySelector("#close-top-5-btn-junior");
     
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
     };
+
+    if (showTop5JuniorBtn) {
+        showTop5JuniorBtn.addEventListener("click", showTop5JuniorDialog);
+    }
+
+    if (closeTop5JuniorBtn) {
+        closeTop5JuniorBtn.addEventListener("click", CloseTop5JuniorDialog);
+    }
 
     if (form) {
         form.addEventListener("submit", validatePassword);

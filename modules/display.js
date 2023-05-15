@@ -104,6 +104,15 @@ export function showTop5Dialog() {
   dialog.showModal();
 }
 
+export function showTop5JuniorDialog() {
+  const dialog = document.querySelector("#top-five-dialog-junior");
+  dialog.showModal();
+}
+export function CloseTop5JuniorDialog() {
+  const dialog = document.querySelector("#top-five-dialog-junior");
+  dialog.close();
+}
+
 export function closeTop5Dialog() {
   const dialog = document.querySelector("#top-five-dialog");
   dialog.close();
