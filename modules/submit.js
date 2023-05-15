@@ -1,4 +1,4 @@
-import { closeNewMemberDialog } from "/modules/dialog.js";
+// import { closeNewMemberDialog } from "/modules/dialog.js";
 import { createMember } from "/main.js";
 import { updateSwimResults } from "/main.js";
 
