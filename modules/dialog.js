@@ -27,6 +27,8 @@ console.log("Åh min ven, du gjorde det med EDIT");
 }
 
 export function showAddResultDialog(obj) {
+    document.querySelector("#close-swim-results-btn")
+    .addEventListener("click", closeResultDialog);
   
   const dialog = document.querySelector("#dialog-add-swim-results");
   const form = document.querySelector("#form-add-svim-results");
@@ -48,3 +50,7 @@ export function showAddResultDialog(obj) {
 
 }
 
+export function closeResultDialog() {
+    const dialog = document.querySelector("#dialog-add-swim-results");
+    dialog.close(); 
+}

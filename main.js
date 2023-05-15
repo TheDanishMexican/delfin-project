@@ -131,7 +131,7 @@ export async function updateSwimResults(id, date, discipline, time) {
         result: time
         }]
   };
-
+  const form = document.querySelector("#dialog-add-swim-results");
   const stringified = JSON.stringify(updatedSwimmer);
   const response = await fetch(`${endpoint}/members/${id}.json`, {
     method: "PATCH",
@@ -140,6 +140,8 @@ export async function updateSwimResults(id, date, discipline, time) {
 
   if (response.ok) {
     console.log("Results added");
+    form.close();
+
   } else (console.log("Error in results added"));
 
 }

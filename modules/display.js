@@ -61,7 +61,10 @@ export function showSwimmer(obj) {
     const html = /*html*/ `
     <div class="elite-swimmer-item">
         <div>
-          <button class="add-result-button">Tilføj/rediger resultat</button>
+          <button class="add-result-button">Rediger resultat</button>
+        </div>
+        <div>
+          <button class="edit-result-button">Tilføj resultat</button>
         </div>
         <p>Navn: ${obj.name}</p>
         <p>Svømmertype: ${obj.swimmerType}</p>
