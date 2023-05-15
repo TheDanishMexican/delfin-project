@@ -63,6 +63,12 @@ export async function showFilteredSwimmers() {
 export function showSwimmer(obj) {
     const html = /*html*/ `
     <div class="elite-swimmer-item">
+        <div>
+          <button class="add-result-button">Rediger resultat</button>
+        </div>
+        <div>
+          <button class="edit-result-button">Tilføj resultat</button>
+        </div>
         <p>Navn: ${obj.name}</p>
         <p>Svømmertype: ${obj.swimmerType}</p>
         <p>Medlemskabstype: ${obj.membershipType}</p>
@@ -81,8 +87,12 @@ export function showSwimmer(obj) {
     </div>    
     `
     if(document.querySelector("#elite-swimmers-container")) {
-        document.querySelector("#elite-swimmers-container")
+      document.querySelector("#elite-swimmers-container")
         .insertAdjacentHTML("beforeend", html);
+
+      document.querySelector("#elite-swimmers-container div:last-child .add-result-button")
+      .addEventListener("click", () => showAddResultDialog(obj));
+
     };
 }
 
@@ -119,6 +129,14 @@ export function showDeleteDialog(obj) {
 export function closeDeleteDialog(){
   document.querySelector("#delete-dialog").close();
 }
+
+
+
+
+
+
+
+
 
 
 

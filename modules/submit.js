@@ -1,7 +1,8 @@
-import { closeNewMemberDialog } from "/modules/dialog.js";
+// import { closeNewMemberDialog } from "/modules/dialog.js";
 import { createMember } from "/main.js";
 import {deleteMember} from "/main.js";
 
+import { updateSwimResults } from "/main.js";
 
 export function CreateSubmitClicked(event) {
     event.preventDefault();
@@ -43,3 +44,13 @@ export function deleteMemberClicked(event) {
 
 
 
+export function submitResultDisciplineClicked(event) {
+  event.preventDefault();
+  const form = event.target;
+  const date = form.resultDate.value;
+  const discipline = form.resultDiscipline.value;
+  const time = form.resultTime.value;
+  const id = form.getAttribute("swimmer-id");
+
+  updateSwimResults(id, date, discipline, time);
+}
