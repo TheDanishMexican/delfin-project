@@ -1,5 +1,5 @@
 import { validatePassword } from "/modules/validate.js";
-import { showNewMemberDialog } from "/modules/dialog.js";
+import { showNewMemberDialog, closeDialog } from "/modules/dialog.js";
 import { showAll, showFilteredSwimmers } from "/modules/display.js";
 import { showValidatePasswordDialog } from "/modules/display.js";
 import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
@@ -13,7 +13,7 @@ window.addEventListener("load", start);
 const endpoint = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
 
 export async function start() {
-    const button = document.querySelector("#new-member-button");
+    const addButton = document.querySelector("#new-member-button");
     const memberData = await getData();
     const preparedArray = prepareData(memberData);
     const form = document.querySelector("#login-form");
@@ -25,7 +25,8 @@ export async function start() {
     const deleteCancel=document.querySelector(".btn-cancel");
     
     const editBtn = document.querySelector(".edit-btn");
-
+    const exitBtns = document.querySelectorAll(`button[id^=close]`);
+    
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
     };
@@ -34,8 +35,8 @@ export async function start() {
         form.addEventListener("submit", validatePassword);
     };
     
-    if(button) {
-        button.addEventListener("click", showNewMemberDialog)
+    if(addButton) {
+        addButton.addEventListener("click", showNewMemberDialog)
         
     };
 
@@ -51,9 +52,16 @@ export async function start() {
         FormInTop5.addEventListener("submit", showTop5Swimmers);
     };
     if(editBtn) {
-        FormInTop5.addEventListener("submit", showEditMemberDialog);
-        console.log("jeg virker også");
+        editBtn.addEventListener("click", showEditMemberDialog);
     };
+    if (exitBtns) {
+        exitBtns.forEach(exitBtn => {
+            exitBtn.addEventListener("click", closeDialog);
+            console.log("evtlstn tilføjet");
+        });
+        
+    };
+    
 
     if (Delete) {
         Delete.addEventListener("submit", deleteMemberClicked); 
@@ -76,7 +84,7 @@ export async function start() {
 export async function getData() {
     const response = await fetch(`${endpoint}/members.json`)
     if(response.ok) {
-        const data = response.json();
+        const data = await response.json();
         return data;
     } else {
         console.log("Bad response")
@@ -120,7 +128,7 @@ export async function createMember(fullName, age, address, phoneNumber, email, s
         }
     );
     if (response.ok) {
-        console.log(newMemberObj)
+        console.log("New member created")
     };
 }
 
@@ -152,4 +160,28 @@ export async function deleteMember(id){
     console.log("Nice deleted");
 }
 }
+export async function updateSwimResults(id, date, discipline, time) {
+  const updatedSwimmer = {
+        competitionResults: [
+        {
+        date: date,
+        discipline: discipline,
+        result: time
+        }]
+  };
+  const form = document.querySelector("#dialog-add-swim-results");
+  const stringified = JSON.stringify(updatedSwimmer);
+  const response = await fetch(`${endpoint}/members/${id}.json`, {
+    method: "PATCH",
+    body: stringified
+  });
+
+  if (response.ok) {
+    console.log("Results added");
+    form.close();
+
+  } else (console.log("Error in results added"));
+
+}
+
 
