@@ -16,17 +16,19 @@ export function showOne(obj) {
   <section>
     <div class="member-object">
       <div class="personal-information">
-        <p>Navn: ${obj.name}</p>
-        <p>Alder: ${obj.age}</p>
-        <p>Adresse: ${obj.address}</p>
+        <p>${obj.name}</p>
+        <p>${obj.age} år</p>
+        <p>Medlemskabstype: ${obj.membershipType}</p>
       </div>
       <div class="swim-information">
-        <p>Medlemskabstype: ${obj.membershipType}</p>
-        <p>E-mail: ${obj.email}</p>
-        <p>Telefonnummer: ${obj.phoneNumber}</p>
+       <p><strong>Adresse:</strong> ${obj.address}</p> 
+        <p><strong>E-mail:</strong> ${obj.email}</p>
+        <p><strong>Telefonnummer:</strong> ${obj.phoneNumber}</p>
+        </div> 
+      <div class="object-btns">
         <button class="delete-btn">Slet</button>
-      <button class="edit-btn">Ret oplysninger, min ven?</button>
-        </div>  
+      <button class="edit-btn">Ret oplysninger</button>
+      </div> 
     </div>
   </section>  
   `
@@ -60,20 +62,19 @@ export async function showFilteredSwimmers() {
 export function showSwimmer(obj) {
     const html = /*html*/ `
     <div class="elite-swimmer-item">
-        <div>
-          <button class="add-result-button">Rediger resultat</button>
-        </div>
-        <div>
-          <button class="edit-result-button">Tilføj resultat</button>
-        </div>
-        <p>Navn: ${obj.name}</p>
+    <div class="swimmer-info">
+        <p>${obj.name}</p>
         <p>Svømmertype: ${obj.swimmerType}</p>
         <p>Medlemskabstype: ${obj.membershipType}</p>
+        </div>
+        <div class="swimmer-discipline">
         <p>Discipliner:</p>
         <ul>
             ${obj.discipline ? obj.discipline.
                 map(discipline => `<li>${discipline}</li>`).join('') : 'Ingen'}
         </ul>
+        </div>
+        <div class="swimmer-comp-results">
         <p>Konkurrenceresultater:</p>
         <ul>
             ${obj.competitionResults ? obj.competitionResults.
@@ -81,6 +82,15 @@ export function showSwimmer(obj) {
                 ${result.discipline}</li> <li>Tid: ${result.result} sekunder</li>`)
                 .join('') : 'Har ikke deltaget i konkurrencer endnu'}
         </ul>
+        </div>
+        <div class="swimmer-btns">
+        <div>
+          <button class="add-result-button">Ændr resultat</button>
+        </div>
+        <div>
+          <button class="edit-result-button">Tilføj resultat</button>
+        </div>
+        </div>
     </div>    
     `
     if(document.querySelector("#elite-swimmers-container")) {
