@@ -34,11 +34,11 @@
     <div id="member-object-container">
 
     </div>
-    <dialog id="create-new-member-dialog" class="dialogs">
-        <button type="button" id="close-new-member-btn" class="">X</button>
+    <dialog id="create-new-member-dialog">
+        <button type="button" id="cancel-button">X</button>
         <br>
         <br>
-        <form action="" id="create-new-member-form" class="forms">
+        <form action="" id="create-new-member-form">
         <label for="name">Fulde Navn:</label>
         <input type="text" id="name" name="name" required><br>
 
@@ -90,62 +90,8 @@
         </form>
     </dialog>
 
-    <dialog id="edit-member-dialog" class="dialogs">
-        <p>Redigér oplysninger</p>
-         <button type="button" id="close-edit-member-btn" class="exit-btn-class">X</button>
-        <br>
-        <br>
-        <form action="" id="edit-member-form" class="forms">
-        <label for="name">Fulde Navn:</label>
-        <input type="text" id="name" name="name" required><br>
-
-        <label for="age">Alder:</label>
-        <input type="number" id="age" name="age" required><br>
-
-        <label for="address">Adresse:</label>
-        <input type="text" id="address" name="address" required><br>
-
-        <label for="phone">Telefonnummer:</label>
-        <input type="tel" id="phone" name="phone" required><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br>
-
-        <label for="swimmer-type">Svømmertype:</label>
-        <select id="swimmer-type" name="swimmer-type" required>
-            <option value="">--Vælg venligst--</option>
-            <option value="senior">Senior</option>
-            <option value="junior">Junior</option>
-        </select><br>
-
-        <label for="membership-type">Medlemstype:</label>
-        <select id="membership-type" name="membership-type" required>
-            <option value="">--Vælg venligst--</option>
-            <option value="active">Aktiv</option>
-            <option value="inactive">Inaktiv</option>
-        </select><br>
-
-        <label for="amount-owed">Skyldig Beløb:</label>
-        <input type="number" id="amount-owed" name="amount-owed" required><br>
-
-        <label for="owes-money">Skylder Penge:</label>
-        <input type="checkbox" id="owes-money" name="owes-money"><br>
-
-        <p>Udfyld kun nedenstående hvis medlem <br> er konkurrencesvømmer.</p>
-
-        <label for="competition-swimmer">Konkurrencesvømmer:</label>
-        <input type="checkbox" id="competition-swimmer" name="competition-swimmer"><br>
-
-        <label>Disciplin(er):</label> <br>
-        <input type="checkbox" name="disciplines[]" value="crawl">Crawl<br>
-        <input type="checkbox" name="disciplines[]" value="butterfly">Butterfly<br>
-        <input type="checkbox" name="disciplines[]" value="brystsvømning">Brystsvømning<br>
-        <input type="checkbox" name="disciplines[]" value="rygsvømning">Rygsvømning<br>
-
-        <br>
-        <button id="new-member-form-submit-button">Indsend ændringer</button>  
-        </form>
-
+    <dialog id="edit-dialog">
+        <p>Redigér oplysninger</p> 
     </dialog>
     
     <dialog id="delete-dialog">
