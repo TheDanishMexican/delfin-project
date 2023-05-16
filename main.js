@@ -105,9 +105,13 @@ export async function getData() {
 export function prepareData(obj) {
     const memberArray = [];
     for (const key in obj) {
+        if(obj[key] === null) {
+            continue;
+        } else {
         const member = obj[key];
         member["id"] = key;
         memberArray.push(member);
+        }
     }
         return memberArray;
 }
