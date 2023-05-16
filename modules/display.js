@@ -7,6 +7,7 @@ const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedata
 
 
 export function showAll(array) {
+  console.log(array);
     for (const member of array) {
         showCashier(member);
         showOne(member);

@@ -102,7 +102,7 @@ export async function getData() {
 /*---------------PREPARE------------*/
 // data prep for member data (getData)
 
-export async function prepareData(obj) {
+export function prepareData(obj) {
     const memberArray = [];
     for (const key in obj) {
         if(obj[key] === null) {
@@ -139,6 +139,7 @@ export async function createMember(fullName, age, address, phoneNumber, email, s
         }
     );
     if (response.ok) {
+        updateMembersGrid();
         console.log("New member created")
     };
 }
@@ -212,9 +213,8 @@ console.log("Member paid");
 
 export async function updateMembersGrid() {
     const memberData = await getData();
-    const memberArray = await prepareData(memberData);
+    const memberArray = prepareData(memberData);
     showAll(memberArray);
-
 }
 
 
