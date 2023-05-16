@@ -32,13 +32,36 @@
             <h3>Vælg den disciplin du vil se top 5 for:</h3>
             <label for="discipline">Disciplin:</label>
             <select id="discipline" name="discipline">
-            <option value="">--Vælg en--</option>
-            <option value="crawl">Crawl</option>
-            <option value="butterfly">Butterfly</option>
-            <option value="brystsvømning">Brystsvømning</option>
-            <option value="rygsvømning">Rygsvømning</option>
+                <option value="">--Vælg en--</option>
+                <option value="crawl">Crawl</option>
+                <option value="butterfly">Butterfly</option>
+                <option value="brystsvømning">Brystsvømning</option>
+                <option value="rygsvømning">Rygsvømning</option>
             </select>
             <button>Vælg</button>  
+        </form>
+    </dialog>
+    <dialog id="dialog-add-swim-results">
+        <form action="" id="form-add-svim-results">
+            <button type="button" id="close-swim-results-btn">X</button>
+            <label for="name">Navn:</label>
+            <input type="text" name="name" readonly>
+            <br><br>
+            <label for="resultDiscipline">Disciplin:</label>
+                <select id="resultDiscipline" name="resultDiscipline" required>
+                    <option value="">--Vælg en--</option>
+                    <option value="crawl">Crawl</option>
+                    <option value="butterfly">Butterfly</option>
+                    <option value="brystsvømning">Brystsvømning</option>
+                    <option value="rygsvømning">Rygsvømning</option>
+                </select> <br>
+            <label for="resultTime">Tid:</label>
+            <input type="number" name="resultTime" placeholder="F.eks 12.1 sekunder" required>
+            <br>
+            <label for="resultDate">Dato:</label>
+            <input type="date" name="resultDate" placeholder="Vælg dato" required>
+            <br><br>
+            <button>Tilføj</button>
         </form>
     </dialog>
     <script type="module" src="main.js"></script>

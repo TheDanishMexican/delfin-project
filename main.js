@@ -5,6 +5,8 @@ import { showValidatePasswordDialog } from "/modules/display.js";
 import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
 import { showEditMemberDialog } from "./modules/dialog.js";
 
+import {deleteMemberClicked} from "/modules/submit.js";
+import{closeDeleteDialog} from"/modules/display.js"
 
 window.addEventListener("load", start);
 
@@ -19,6 +21,9 @@ export async function start() {
     const buttonTop5 = document.querySelector("#top-five-button");
     const closeBtnInTop5 = document.querySelector("#close-top-5-btn");
     const FormInTop5 = document.querySelector("#top-five-form");
+    const Delete = document.querySelector("#form-delete");
+    const deleteCancel=document.querySelector(".btn-cancel");
+    
     const editBtn = document.querySelector(".edit-btn");
     const exitBtns = document.querySelectorAll(`button[id^=close]`);
     
@@ -58,16 +63,28 @@ export async function start() {
     };
     
 
+    if (Delete) {
+        Delete.addEventListener("submit", deleteMemberClicked); 
+    }
+
+    if(deleteCancel){
+        deleteCancel.addEventListener("click",closeDeleteDialog);
+    }
+
     showAll(preparedArray);
     showFilteredSwimmers();
+    
 }
+
+    
+
 
 //*----CREATE----*//
 // create new member
 export async function getData() {
     const response = await fetch(`${endpoint}/members.json`)
     if(response.ok) {
-        const data = response.json();
+        const data = await response.json();
         return data;
     } else {
         console.log("Bad response")
@@ -80,8 +97,10 @@ export function prepareData(obj) {
     const memberArray = [];
     for (const key in obj) {
         const member = obj[key];
+        if(member!== null){
         member["id"] = key;
         memberArray.push(member);
+        }
     }
         return memberArray;
 }
@@ -109,7 +128,7 @@ export async function createMember(fullName, age, address, phoneNumber, email, s
         }
     );
     if (response.ok) {
-        console.log(newMemberObj)
+        console.log("New member created")
     };
 }
 
@@ -128,6 +147,41 @@ showToastMessage("Medlemmet er opdateret :-)");
     console.log("Error: member not updated");
     showToastMessage("Hovsa sovsa, noget gik galt." <br> "Er det hele korrekt indtastet? ");
 }
+}
+
+// DELETE
+export async function deleteMember(id){
+     const response = await fetch(`${endpoint}/members/${id}.json`, {
+    method: "DELETE",
+  });
+
+  // check if response is ok - if the response is successful
+  if (response.ok) {
+    console.log("Nice deleted");
+}
+}
+export async function updateSwimResults(id, date, discipline, time) {
+  const updatedSwimmer = {
+        competitionResults: [
+        {
+        date: date,
+        discipline: discipline,
+        result: time
+        }]
+  };
+  const form = document.querySelector("#dialog-add-swim-results");
+  const stringified = JSON.stringify(updatedSwimmer);
+  const response = await fetch(`${endpoint}/members/${id}.json`, {
+    method: "PATCH",
+    body: stringified
+  });
+
+  if (response.ok) {
+    console.log("Results added");
+    form.close();
+
+  } else (console.log("Error in results added"));
+
 }
 
 

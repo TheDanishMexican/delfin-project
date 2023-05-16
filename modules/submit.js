@@ -1,5 +1,8 @@
 // import { closeNewMemberDialog } from "/modules/dialog.js";
 import { createMember } from "/main.js";
+import {deleteMember} from "/main.js";
+
+import { updateSwimResults } from "/main.js";
 
 export function CreateSubmitClicked(event) {
     event.preventDefault();
@@ -33,3 +36,21 @@ export function CreateSubmitClicked(event) {
     
 }
 
+export function deleteMemberClicked(event) {
+  const id = event.target.getAttribute("data-id"); // event.target is the delete form
+  console.log(id)
+  deleteMember(id); // call deletePost with id
+}
+
+
+
+export function submitResultDisciplineClicked(event) {
+  event.preventDefault();
+  const form = event.target;
+  const date = form.resultDate.value;
+  const discipline = form.resultDiscipline.value;
+  const time = form.resultTime.value;
+  const id = form.getAttribute("swimmer-id");
+
+  updateSwimResults(id, date, discipline, time);
+}

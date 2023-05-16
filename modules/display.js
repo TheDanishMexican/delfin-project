@@ -1,5 +1,12 @@
+
 import { getData, prepareData } from "/main.js";
 import { showEditMemberDialog } from "/modules/dialog.js";
+
+import { showAddResultDialog } from "./dialog.js";
+
+
+const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
+
 
 export function showAll(array) {
     for (const member of array) {
@@ -56,6 +63,12 @@ export async function showFilteredSwimmers() {
 export function showSwimmer(obj) {
     const html = /*html*/ `
     <div class="elite-swimmer-item">
+        <div>
+          <button class="add-result-button">Rediger resultat</button>
+        </div>
+        <div>
+          <button class="edit-result-button">Tilføj resultat</button>
+        </div>
         <p>Navn: ${obj.name}</p>
         <p>Svømmertype: ${obj.swimmerType}</p>
         <p>Medlemskabstype: ${obj.membershipType}</p>
@@ -74,8 +87,12 @@ export function showSwimmer(obj) {
     </div>    
     `
     if(document.querySelector("#elite-swimmers-container")) {
-        document.querySelector("#elite-swimmers-container")
+      document.querySelector("#elite-swimmers-container")
         .insertAdjacentHTML("beforeend", html);
+
+      document.querySelector("#elite-swimmers-container div:last-child .add-result-button")
+      .addEventListener("click", () => showAddResultDialog(obj));
+
     };
 }
 
@@ -104,8 +121,28 @@ export function showTop5Swimmers(event) {
 
 export function showDeleteDialog(obj) {
   console.log(obj);
+  document.querySelector("#dialog-delete-title").textContent=obj.name;
+  document.querySelector("#form-delete").setAttribute("data-id",obj.id);
   document.querySelector("#delete-dialog").showModal();
 }
+
+export function closeDeleteDialog(){
+  document.querySelector("#delete-dialog").close();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export function updateGrid(){
   showAll();
