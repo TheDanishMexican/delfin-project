@@ -13,6 +13,7 @@ export function showAll(array) {
   if (document.querySelector("#cashier-members-container")){
     document.querySelector("#cashier-members-container").innerHTML ="";
   }
+
     for (const member of array) {
         showCashier(member);
         showOne(member);
@@ -62,6 +63,9 @@ export async function showForCoach() {
 
 export async function showFilteredSwimmers() {
     const array = await showForCoach();
+      if (document.querySelector("#elite-swimmers-container")){
+    document.querySelector("#elite-swimmers-container").innerHTML="";
+  }
     for (const swimmer of array) {
         showSwimmer(swimmer);
     };
