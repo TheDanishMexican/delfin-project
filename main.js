@@ -102,7 +102,7 @@ export async function getData() {
 /*---------------PREPARE------------*/
 // data prep for member data (getData)
 
-export function prepareData(obj) {
+export async function prepareData(obj) {
     const memberArray = [];
     for (const key in obj) {
         if(obj[key] === null) {
@@ -210,6 +210,12 @@ console.log("Member paid");
  } else (console.log("Member did not pay"));
 }
 
+export async function updateMembersGrid() {
+    const memberData = await getData();
+    const memberArray = await prepareData(memberData);
+    showAll(memberArray);
+
+}
 
 
 
