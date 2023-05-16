@@ -5,9 +5,10 @@ import { showValidatePasswordDialog } from "/modules/display.js";
 import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
 import { showEditMemberDialog } from "./modules/dialog.js";
 import { CloseTop5JuniorDialog, showTop5JuniorDialog } from "./modules/display.js";
-import {deleteMemberClicked} from "/modules/submit.js";
-import{closeDeleteDialog} from"/modules/display.js"
+import { deleteMemberClicked} from "/modules/submit.js";
+import { closeDeleteDialog} from"/modules/display.js"
 import { closePaidDialog } from "./modules/display.js";
+
 
 
 window.addEventListener("load", start);
@@ -144,8 +145,10 @@ export async function createMember(fullName, age, address, phoneNumber, email, s
 }
 
 /*---------------UPDATE------------*/
-// Put request with member object to endpoint
+// Patch request with member object to endpoint
 export async function updateMember(member, key, endpoint){
+const submitEditForm = document.querySelector("#edit-member-form")
+
 const response = await fetch(`${endpoint}members/${key}.json`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
