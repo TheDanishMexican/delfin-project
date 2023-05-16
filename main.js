@@ -5,6 +5,9 @@ import { showValidatePasswordDialog } from "/modules/display.js";
 import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
 import { showEditMemberDialog } from "./modules/dialog.js";
 import { CloseTop5JuniorDialog, showTop5JuniorDialog } from "./modules/display.js";
+import {deleteMemberClicked} from "/modules/submit.js";
+import{closeDeleteDialog} from"/modules/display.js"
+import { closePaidDialog } from "./modules/display.js";
 
 
 window.addEventListener("load", start);
@@ -24,6 +27,9 @@ export async function start() {
     const exitBtns = document.querySelectorAll(`button[id^=close]`);
     const showTop5JuniorBtn = document.querySelector("#top-five-junior-button");
     const closeTop5JuniorBtn = document.querySelector("#close-top-5-btn-junior");
+    const Delete = document.querySelector("#form-delete");
+    const deleteCancel = document.querySelector(".btn-cancel");
+    const paidCancel = document.querySelector(".btn-cncl");
     
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -67,7 +73,17 @@ export async function start() {
         });
         
     };
-    
+     if (Delete) {
+        Delete.addEventListener("submit", deleteMemberClicked);
+    }
+
+    if(deleteCancel){
+        deleteCancel.addEventListener("click",closeDeleteDialog);
+    }
+
+    if(paidCancel){
+        paidCancel.addEventListener("click",closePaidDialog);
+    }
 
     showAll(preparedArray);
     showFilteredSwimmers();
@@ -164,5 +180,39 @@ export async function updateSwimResults(id, date, discipline, time) {
   } else (console.log("Error in results added"));
 
 }
+
+// DELETE
+export async function deleteMember(id){
+     const response = await fetch(`${endpoint}/members/${id}.json`, {
+    method: "DELETE",
+  });
+  // check if response is ok - if the response is successful
+  if (response.ok) {
+    console.log("Nice deleted");
+}
+}
+
+export async function memberPayed(obj, id){
+    const updatedPayment = {
+        amountOwed: obj.amountOwed,
+        owesMoney: obj.owesMoney,
+    }
+    const stringified = JSON.stringify(updatedPayment);
+    const response = await fetch(`${endpoint}/members/${id}.json`, {
+        method: "PATCH",
+        body: stringified,
+    })
+    if (response.ok) {
+        console.log("Member paid");
+    } else (console.log("Member did not pay"));
+}
+
+
+
+
+
+
+
+
 
 
