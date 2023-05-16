@@ -28,8 +28,8 @@ export async function start() {
     const showTop5JuniorBtn = document.querySelector("#top-five-junior-button");
     const closeTop5JuniorBtn = document.querySelector("#close-top-5-btn-junior");
     const Delete = document.querySelector("#form-delete");
-    const deleteCancel = document.querySelector(".btn-cancel");
-    const paidCancel = document.querySelector(".btn-cncl");
+    const deleteCancel = document.querySelector(".btn-cancel");
+    const paidCancel = document.querySelector(".btn-cncl");
     
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -73,17 +73,16 @@ export async function start() {
         });
         
     };
-     if (Delete) {
-        Delete.addEventListener("submit", deleteMemberClicked);
-    }
+    if (Delete) {
+    Delete.addEventListener("submit", deleteMemberClicked);}
 
-    if(deleteCancel){
-        deleteCancel.addEventListener("click",closeDeleteDialog);
-    }
+    if(deleteCancel){
+    deleteCancel.addEventListener("click",closeDeleteDialog);
+    }
 
-    if(paidCancel){
-        paidCancel.addEventListener("click",closePaidDialog);
-    }
+    if(paidCancel){
+    paidCancel.addEventListener("click",closePaidDialog);
+    }
 
     showAll(preparedArray);
     showFilteredSwimmers();
@@ -183,28 +182,28 @@ export async function updateSwimResults(id, date, discipline, time) {
 
 // DELETE
 export async function deleteMember(id){
-     const response = await fetch(`${endpoint}/members/${id}.json`, {
-    method: "DELETE",
-  });
-  // check if response is ok - if the response is successful
-  if (response.ok) {
-    console.log("Nice deleted");
+const response = await fetch(`${endpoint}/members/${id}.json`, {
+method: "DELETE",
+});
+// check if response is ok - if the response is successful
+if (response.ok) {
+console.log("Nice deleted");
 }
 }
 
 export async function memberPayed(obj, id){
-    const updatedPayment = {
-        amountOwed: obj.amountOwed,
-        owesMoney: obj.owesMoney,
-    }
-    const stringified = JSON.stringify(updatedPayment);
-    const response = await fetch(`${endpoint}/members/${id}.json`, {
-        method: "PATCH",
-        body: stringified,
-    })
-    if (response.ok) {
-        console.log("Member paid");
-    } else (console.log("Member did not pay"));
+ const updatedPayment = {
+amountOwed: obj.amountOwed,
+owesMoney: obj.owesMoney,
+}
+ const stringified = JSON.stringify(updatedPayment);
+ const response = await fetch(`${endpoint}/members/${id}.json`, {
+ method: "PATCH",
+body: stringified,
+})
+ if (response.ok) {
+console.log("Member paid");
+ } else (console.log("Member did not pay"));
 }
 
 
