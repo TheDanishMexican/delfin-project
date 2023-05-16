@@ -1,4 +1,4 @@
-
+import { SubmitMemberPaidBill } from "./submit.js";
 import { submitResultDisciplineClicked } from "./submit.js";
 import { CreateSubmitClicked } from "/modules/submit.js";
 
@@ -56,4 +56,17 @@ export function showAddResultDialog(obj) {
 export function closeResultDialog() {
     const dialog = document.querySelector("#dialog-add-swim-results");
     dialog.close(); 
+}
+
+export function deleteClicked(obj) {
+document.querySelector("#dialog-delete-member-title").textContent =obj.name;
+document.querySelector("#form-delete-member").setAttribute("data-id", obj.id);
+document.querySelector("#dialog-delete-member").showModal();
+}
+
+export function dialogPaidBill(obj) {
+const submitBtn = document.querySelector("#form-paid");
+const dialog = document.querySelector("#paid-dialog");
+submitBtn.addEventListener("click", () => SubmitMemberPaidBill(obj));
+dialog.showModal();
 }

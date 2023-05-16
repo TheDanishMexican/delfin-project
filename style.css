@@ -224,3 +224,15 @@ h1 {
     margin-bottom: 5px;
     background-color: aqua;
 }
+
+.cashier-members-item{
+border: solid black;
+}
+
+.amount-owned-red {
+background-color: red;
+}
+
+.amount-owned-green {
+background-color: greenyellow;
+}

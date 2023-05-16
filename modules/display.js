@@ -1,12 +1,14 @@
 import { showAddResultDialog } from "./dialog.js";
 import { getData, prepareData } from "/main.js";
 import { showEditMemberDialog } from "/modules/dialog.js";
+import { dialogPaidBill } from "./dialog.js";
 
 const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
 
 
 export function showAll(array) {
     for (const member of array) {
+        showCashier(member);
         showOne(member);
     };
 }
@@ -136,9 +138,60 @@ export function showTop5Swimmers(event) {
 }
 
 export function showDeleteDialog(obj) {
-  console.log(obj);
-  document.querySelector("#delete-dialog").showModal();
+document.querySelector("#dialog-delete-title").textContent=obj.name;
+document.querySelector("#form-delete").setAttribute("data-id",obj.id);
+document.querySelector("#delete-dialog").showModal();
 }
+
+export function closeDeleteDialog(){
+document.querySelector("#delete-dialog").close();
+}
+
+export function showCashier(obj) {
+
+const html = /*html*/`
+<section>
+<div class="cashier-members-item" id="member-${obj.id}">
+<div class="personal-information">
+<p>Navn: ${obj.name}</p>
+<p>Alder: ${obj.age}</p>
+<p>Adresse: ${obj.address}</p>
+</div>
+<div class="swim-information">
+<p>Medlemskabstype: ${obj.membershipType}</p>
+<p>E-mail: ${obj.email}</p>
+<p>Telefonnummer: ${obj.phoneNumber}</p>
+<p>Skyldigt beløb: ${obj.amountOwed}</p>
+<button class="pay-btn">Betalt</button>
+</div>
+</div>
+</section>
+`;
+
+if(document.querySelector("#cashier-members-container")) {
+
+document.querySelector("#cashier-members-container")
+.insertAdjacentHTML("beforeend", html);
+
+setBackgroundColor(obj);
+
+document.querySelector("#cashier-members-container section:last-child .pay-btn")
+.addEventListener("click", () => dialogPaidBill(obj));
+}
+}
+
+function setBackgroundColor(obj) {
+if (obj.amountOwed > 0) {
+document.querySelector("#cashier-members-container section:last-child").classList.add("amount-owned-red");
+} else {
+document.querySelector("#cashier-members-container section:last-child").classList.add("amount-owned-green");
+}
+}
+
+export function closePaidDialog(){
+document.querySelector("#paid-dialog").close();
+}
+
 
 
 
