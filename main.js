@@ -210,6 +210,7 @@ body: stringified,
 })
  if (response.ok) {
 console.log("Member paid");
+updateMembersGrid();
  } else (console.log("Member did not pay"));
 }
 

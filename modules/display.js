@@ -7,7 +7,12 @@ const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedata
 
 
 export function showAll(array) {
+  if(document.querySelector("#member-object-container")){
   document.querySelector("#member-object-container").innerHTML ="";
+  }
+  if (document.querySelector("#cashier-members-container")){
+    document.querySelector("#cashier-members-container").innerHTML ="";
+  }
     for (const member of array) {
         showCashier(member);
         showOne(member);
