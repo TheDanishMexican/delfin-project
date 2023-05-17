@@ -7,6 +7,7 @@ export function CreateSubmitClicked(event) {
     event.preventDefault();
 
     const form = event.target;
+
     const fullName = form.name.value;
     const age = form.age.value;
     const address = form.address.value;
