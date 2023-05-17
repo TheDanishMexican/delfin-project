@@ -217,7 +217,7 @@ export async function updateMembersGrid() {
     const memberData = await getData();
     const memberArray = prepareData(memberData);
     showAll(memberArray);
-    totalIncome(memberArray);
+    
 }
 
 export function totalIncome(memberArray){
