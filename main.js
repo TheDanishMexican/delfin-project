@@ -217,9 +217,31 @@ export async function updateMembersGrid() {
     const memberData = await getData();
     const memberArray = prepareData(memberData);
     showAll(memberArray);
+    totalIncome(memberArray);
 }
 
+export function totalIncome(memberArray){
+let totalIncome = 0;
 
+for (const member of memberArray) {
+  const membershipType = member.membershipType;
+  const swimmerType = member.swimmerType;
+  const amountOwed = member.amountOwed;
+
+  if (membershipType === "active") {
+    if (swimmerType === "senior") {
+      totalIncome += parseInt(amountOwed);
+    } else if (swimmerType === "junior") {
+      totalIncome += 1000; // Ungdomssvømmere (under 18 år): 1000 kr. årligt
+    }
+  } else if (membershipType === "passive") {
+    totalIncome += 500; // Passivt medlemskab: 500 kr. årligt
+  }
+}
+const sumOfIncomeContainer = document.querySelector("#sum-of-income-container");
+sumOfIncomeContainer.textContent = `Forventet indkomst i alt: ${totalIncome} kr.`;
+console.log(totalIncome);
+}
 
 
 

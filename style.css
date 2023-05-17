@@ -236,3 +236,11 @@ background-color: red;
 .amount-owned-green {
 background-color: greenyellow;
 }
+
+#sum-of-income-container {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  display: grid;
+  place-items: center;
+}
