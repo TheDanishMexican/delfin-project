@@ -7,6 +7,13 @@ const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedata
 
 
 export function showAll(array) {
+  if(document.querySelector("#member-object-container")){
+  document.querySelector("#member-object-container").innerHTML ="";
+  }
+  if (document.querySelector("#cashier-members-container")){
+    document.querySelector("#cashier-members-container").innerHTML ="";
+  }
+
     for (const member of array) {
         showCashier(member);
         showOne(member);
@@ -56,6 +63,9 @@ export async function showForCoach() {
 
 export async function showFilteredSwimmers() {
     const array = await showForCoach();
+      if (document.querySelector("#elite-swimmers-container")){
+    document.querySelector("#elite-swimmers-container").innerHTML="";
+  }
     for (const swimmer of array) {
         showSwimmer(swimmer);
     };
@@ -63,6 +73,7 @@ export async function showFilteredSwimmers() {
 
 export function showSwimmer(obj) {
     const html = /*html*/ `
+    <section>
     <div class="elite-swimmer-item">
     <div class="swimmer-info">
         <p>${obj.name}</p>
@@ -93,13 +104,14 @@ export function showSwimmer(obj) {
           <button class="edit-result-button">Tilføj resultat</button>
         </div>
         </div>
-    </div>    
+    </div> 
+    </section>   
     `
     if(document.querySelector("#elite-swimmers-container")) {
       document.querySelector("#elite-swimmers-container")
         .insertAdjacentHTML("beforeend", html);
 
-      document.querySelector("#elite-swimmers-container div:last-child .add-result-button")
+      document.querySelector("#elite-swimmers-container section:last-child .add-result-button")
       .addEventListener("click", () => showAddResultDialog(obj));
 
     };
