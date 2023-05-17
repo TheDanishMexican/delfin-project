@@ -30,9 +30,7 @@ export function CreateSubmitClicked(event) {
     createMember(fullName, age, address, phoneNumber, email, swimmerType,
         membershipType, competitionSwimmer, disciplines, amountOwed, owesMoney);
     
-    closeNewMemberDialog();
-
-    
+    closeNewMemberDialog();   
 }
 
 export function submitResultDisciplineClicked(event) {
