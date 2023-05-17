@@ -10,28 +10,43 @@
 </head>
 <body>
     <div id="login-div">
+            <div id="login-box-container">
+                        <div class="logo">
+            <img src="images/image.png" alt="">
+        </div>
         <div id="welcome-message">
             <div id="welcome-message-container">
-                <h2>Velkommen til Delfinen svømmeklubs administrationssystem</h2>
+                <h2>Delfinen svømmeklub</h2>
             </div> 
+        <div id="subtitle">
+            Administration, kasserer og træner
         </div>
-        <div id="login-button-container">
-            <div class="logo"><img src="images/image.png" alt=""></div>
-            <button id="log-but">Login</button>
         </div>
-        <dialog close id="login-dialog">
-            <div id="login-box-container">
                 <div id="login-form-container">
                     <form action="" id="login-form">
-                        <label for="username">Brugernavn:</label>
-                        <input type="text" name="username" id="username-input" placeholder="Indtast brugernavn">
-                        <label for="">Kode:</label>
-                        <input type="password" name="password" id="password-input" placeholder="Indtast kode">
-                        <button id="submit-button">Login</button>
+                        <div id="user-name-div">
+                            <label for="username"></label>
+                            <input type="text" name="username" id="username-input" placeholder="Indtast brugernavn">
+                        </div>
+                        <div id="password-div">
+                            <label for=""></label>
+                            <input type="password" name="password" id="password-input" placeholder="Indtast kode">
+                        </div>
+                        <div id="options-div">
+                            <div class="remember-me">
+                                <input id="remember-me" type="checkbox">
+                                <label for="remember-me">Husk mig</label>
+                            </div>
+                            <div id="forgot-password">
+                                <a href="#">Glemt adgangskode?</a>
+                            </div>
+                        </div>
+                        <div id="login-button-div">
+                            <button id="submit-button">Login</button>
+                        </div>
                     </form>
                 </div>
             </div>
-        </dialog>
     </div>
     <script type="module" src="main.js"></script>
     <script type="module" src="modules/dialog.js"></script>
