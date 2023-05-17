@@ -21,7 +21,6 @@ export function showEditMemberDialog(){
 export function closeDialog(){
 const dialog = document.querySelectorAll(".dialogs")
 const form = document.querySelector(".forms")
-console.log("gør det");
 
 dialog.forEach(dialog => {
     dialog.close();
