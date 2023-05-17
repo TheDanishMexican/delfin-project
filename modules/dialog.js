@@ -64,8 +64,9 @@ document.querySelector("#dialog-delete-member").showModal();
 }
 
 export function dialogPaidBill(obj) {
-const submitBtn = document.querySelector("#form-paid");
+const submitBtn = document.querySelector("#confirm-pay-btn");
 const dialog = document.querySelector("#paid-dialog");
 submitBtn.addEventListener("click", () => SubmitMemberPaidBill(obj));
 dialog.showModal();
 }
+
