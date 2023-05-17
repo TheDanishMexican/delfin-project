@@ -66,7 +66,7 @@ const id = obj.id;
 
 memberPayed(obj, id);
 
-closePaidDialog();
+closePaidDialog(id);
 
 }
 
