@@ -73,6 +73,7 @@ export async function showFilteredSwimmers() {
 
 export function showSwimmer(obj) {
     const html = /*html*/ `
+    <section>
     <div class="elite-swimmer-item">
     <div class="swimmer-info">
         <p>${obj.name}</p>
@@ -103,13 +104,14 @@ export function showSwimmer(obj) {
           <button class="edit-result-button">Tilføj resultat</button>
         </div>
         </div>
-    </div>    
+    </div> 
+    </section>   
     `
     if(document.querySelector("#elite-swimmers-container")) {
       document.querySelector("#elite-swimmers-container")
         .insertAdjacentHTML("beforeend", html);
 
-      document.querySelector("#elite-swimmers-container div:last-child .add-result-button")
+      document.querySelector("#elite-swimmers-container section:last-child .add-result-button")
       .addEventListener("click", () => showAddResultDialog(obj));
 
     };
