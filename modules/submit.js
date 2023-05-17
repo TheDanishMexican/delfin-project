@@ -2,6 +2,7 @@ import { createMember } from "/main.js";
 import { updateSwimResults } from "/main.js";
 import {deleteMember} from "/main.js";
 import { memberPayed } from "../main.js";
+import { closePaidDialog } from "./display.js";
 
 export function CreateSubmitClicked(event) {
     event.preventDefault();
@@ -64,6 +65,8 @@ obj.owesMoney = false;
 const id = obj.id;
 
 memberPayed(obj, id);
+
+closePaidDialog();
 
 }
 

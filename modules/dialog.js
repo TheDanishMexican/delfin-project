@@ -70,3 +70,4 @@ const dialog = document.querySelector("#paid-dialog");
 submitBtn.addEventListener("click", () => SubmitMemberPaidBill(obj));
 dialog.showModal();
 }
+

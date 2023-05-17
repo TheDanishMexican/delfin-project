@@ -207,7 +207,8 @@ body: stringified,
 })
  if (response.ok) {
 console.log("Member paid");
- } else (console.log("Member did not pay"));
+ } else { (console.log("Member did not pay"));
+}
 }
 
 

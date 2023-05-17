@@ -189,7 +189,8 @@ document.querySelector("#cashier-members-container section:last-child").classLis
 }
 
 export function closePaidDialog(){
-document.querySelector("#paid-dialog").close();
+ const dialog = document.querySelector("#paid-dialog");
+  dialog.close();
 }
 
 
