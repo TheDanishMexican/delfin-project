@@ -168,7 +168,8 @@ export async function updateSwimResults(id, date, discipline, time) {
         result: time
         }]
   };
-  const form = document.querySelector("#dialog-add-swim-results");
+  const dialog = document.querySelector("#dialog-add-swim-results");
+  const form = document.querySelector("#form-add-svim-results");
   const stringified = JSON.stringify(updatedSwimmer);
   const response = await fetch(`${endpoint}/members/${id}.json`, {
     method: "PATCH",
@@ -176,8 +177,9 @@ export async function updateSwimResults(id, date, discipline, time) {
   });
 
   if (response.ok) {
-    console.log("Results added");
-    form.close();
+    showFilteredSwimmers();
+    form.reset();
+    dialog.close();
 
   } else (console.log("Error in results added"));
 
