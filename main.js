@@ -69,7 +69,6 @@ export async function start() {
     if (exitBtns) {
         exitBtns.forEach(exitBtn => {
             exitBtn.addEventListener("click", closeDialog);
-            console.log("evtlstn tilføjet");
         });
         
     };
@@ -91,7 +90,6 @@ export async function start() {
 //*----CREATE----*//
 // create new member
 export async function getData() {
-    console.log("1-getdata");
     const response = await fetch(`${endpoint}/members.json`)
     if(response.ok) {
         const data = await response.json();
@@ -104,7 +102,6 @@ export async function getData() {
 // data prep for member data (getData)
 
 export function prepareData(obj) {
-    console.log("2-preparedata");
     const memberArray = [];
     for (const key in obj) {
         if(obj[key] === null) {
