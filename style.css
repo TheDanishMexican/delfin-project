@@ -1,3 +1,162 @@
+#admin-header{
+    min-height: 10vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+#grid-container-nav-menu{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aqua;
+    margin-bottom: 50px;
+}
+
+#new-member-button{
+    background: lightgrey;
+	color:black;
+	border: none;
+	padding: 4px;
+	font:inherit;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+	cursor: pointer;
+	outline: inherit;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#grid-container-nav-menu img{
+    width: 100px;
+}
+
+#nav-links{
+    flex:1;
+    text-align: right;
+}
+
+#nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+
+#nav-links ul li::after{
+    content:"";
+    width:0%;
+    height: 2px;
+    background-color:black;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+#new-member-button::after{
+    content:"";
+    width:0%;
+    height: 2px;
+    background-color:black;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+#new-member-button:hover{
+    background-color: darkgray;
+}
+
+#nav-links ul li:hover::after{
+    width: 100%;
+}
+
+
+#nav-links ul li a{
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.text-box{
+    width: 90%;
+    color: black;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform: translate(-65%, -10%);
+    text-align: center;
+}
+
+.text-box h1{
+    font-size:30px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: aquamarine;
+}
+
+#login-div {
+    margin: 100px auto;
+    width: 350px;
+    background-color: lightcyan;
+    padding: 60px;
+    border: 2px solid lightblue;
+    border-radius: 20%;
+}
+
+.logo img {
+    width: 100%
+}
+
+.logo {
+    background-color: lightskyblue;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin:0 auto;
+    margin-bottom: 50px;
+}
+
+#welcome-message, #subtitle{
+    text-align: center;
+    color:lightskyblue;
+}
+
+#welcome-message-container {
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#subtitle {
+    font-size: 15px;
+}
+
+#login-form{
+    width: 100%;
+    margin-top: 30px;
+}
+
+#login-form input {
+   font-size: 15px; 
+   padding: 10px 20px 10px 5px;
+   border: none;
+   outline: none;
+   background: none;
+}
+
+#user-name-div, #password-div{
+    background-color: whitesmoke;
+    display: block;
+    border-radius: 30px;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 10px 0;
+}
+
 #login-body {
     background-color:aquamarine;
     height: 100vh;
@@ -7,9 +166,6 @@
     grid-template-rows: 1fr 1fr 1fr;
 }
 
-body{
-    background-color: aliceblue;
-}
 
 #welcome-message{
     text-align: center;
@@ -18,7 +174,6 @@ body{
 }
 
 #welcome-message-container{
-    background-color: aliceblue;
     height: 20%;
     border-radius: 10px;
 }
@@ -46,11 +201,7 @@ body{
     text-align: center;
 }    
 
-#grid-container-nav-menu {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    text-align: center;
-}
+
 
 #grid-container-nav a {
     background-color: aqua;
@@ -58,28 +209,13 @@ body{
     border-radius: 5px;
 }
 
-#admin-nav {
-    background-color: aquamarine;
-    padding: 15px;
-    border-radius: 10px;
-}
 
 h1 {
     text-align: center;
 }
 
-#grid-container-admin {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
 
-#new-member-button-container{
-    grid-column: 3;
-}
 
-#new-member-button{
-    border-radius: 10px;
-}
 
 .swimmer-btns{
     display: grid;
@@ -89,36 +225,13 @@ h1 {
 
 
 
-.personal-information{
-    background-color:aquamarine;
-    width: 200px;
-    border-radius: 10px;
-    padding-left: 10px;
-}
 
-.swim-information{
-        background-color:aquamarine;
-    width: 200px;
-    border-radius: 10px;
-    padding-left: 10px;
-}
 
-.object-btns button{
-    background-color: aquamarine;
-}
 
-.member-object {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    border: solid black;
-    padding: 10px;
-    border-radius: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    background-color: azure;
-    align-items: center;
-    
-}
+
+
+
+
 
 .swimmer-info {
     background-color: aquamarine;
@@ -205,26 +318,6 @@ h1 {
     background-color: aquamarine;
 }
 
-
-#member-object-container{
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.delete-btn{
-    border-radius: 0.3cm;
-    margin-bottom: 5px;
-    background-color: aqua;
-}
-
-.edit-btn{
-    border-radius: 0.3cm;
-    margin-bottom: 5px;
-    background-color: aqua;
-}
-
 .cashier-members-item{
 border: solid black;
 }
@@ -237,6 +330,71 @@ background-color: red;
 background-color: greenyellow;
 }
 
+#member-object-container section{
+     margin: auto;
+     text-align: center;
+     padding-top: 10px;
+}
+
+.member-object{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 10px;
+    max-width: 800px;
+    background-color: aqua;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+#member-object-container{
+    max-width: 800px;
+}
+
+
+
+.object-btns{
+ display: grid;
+ grid-row: 1fr 1fr;
+ place-items: center;
+}
+
+.object-btns button{
+    border-radius: 10px;
+    width:50%;
+    height: 75%;
+}
+
+.object-btns button:hover{
+    cursor: pointer;
+    background-color: darkgray;
+}
+
+.personal-information p{
+    transform: translate(0%, 200%);
+}
+
+#body-grid-container{
+    display: grid;
+    grid-template-columns: 72fr 1fr 48fr;
+}
+
+dt{
+    text-decoration: underline;
+}
+
+#faq{
+    border-radius: 10px;
+    background-color: aqua;
+    margin-right: 15px;
+    grid-column: 3;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#faq h3{
+    text-align: center;
+}
+
 #sum-of-income-container {
   margin-top: 20px;
   font-size: 18px;
@@ -244,3 +402,8 @@ background-color: greenyellow;
   display: grid;
   place-items: center;
 }
+
+
+
+
+
