@@ -433,5 +433,13 @@ dt{
     text-decoration: underline;
 }
 
+#obj-table{
+    padding: 20px;
+}
+
+#detail-dialog{
+    border-radius: 10px;
+}
+
 
 
