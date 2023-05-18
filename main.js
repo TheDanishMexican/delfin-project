@@ -8,6 +8,7 @@ import { CloseTop5JuniorDialog, showTop5JuniorDialog } from "./modules/display.j
 import { deleteMemberClicked} from "/modules/submit.js";
 import { closeDeleteDialog} from"/modules/display.js"
 import { closePaidDialog } from "./modules/display.js";
+import { updateMember } from "./modules/updateMember.js";
 
 
 
@@ -31,6 +32,7 @@ export async function start() {
     const Delete = document.querySelector("#form-delete");
     const deleteCancel = document.querySelector(".btn-cancel");
     const paidCancel = document.querySelector(".btn-cncl");
+    const submitEditBtn = document.querySelector(`button[id^=edit-member-form-submit]`)
     
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -83,6 +85,9 @@ export async function start() {
 
     if(paidCancel){
     paidCancel.addEventListener("click",closePaidDialog);
+    }
+    if(submitEditBtn){
+    submitEditBtn.addEventListener("click", updateMemberClicked);
     }
 
     showAll(preparedArray);
@@ -144,24 +149,7 @@ export async function createMember(fullName, age, address, phoneNumber, email, s
     };
 }
 
-/*---------------UPDATE------------*/
-// Patch request with member object to endpoint
-export async function updateMember(member, key, endpoint){
-const submitEditForm = document.querySelector("#edit-member-form")
 
-const response = await fetch(`${endpoint}members/${key}.json`, {
-    method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({member}),
-})
-if (response.ok){
-    console.log("your member was updated");
-showToastMessage("Medlemmet er opdateret :-)");
-} else{
-    console.log("Error: member not updated");
-    showToastMessage("Hovsa sovsa, noget gik galt." <br> "Er det hele korrekt indtastet? ");
-}
-}
 
 export async function updateSwimResults(id, date, discipline, time) {
   const updatedSwimmer = {
