@@ -36,7 +36,7 @@ export function showOne(obj) {
         </div> 
       <div class="object-btns">
         <button class="delete-btn">Slet</button>
-      <button class="edit-btn">Ret oplysninger</button>
+        <button class="edit-btn">Ret oplysninger</button>
       </div> 
     </div>
   </section>  

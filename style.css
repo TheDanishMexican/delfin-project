@@ -330,6 +330,38 @@ background-color: red;
 background-color: greenyellow;
 }
 
+#member-object-container section{
+     margin: auto;
+     text-align: center;
+     padding-top: 10px;
+}
+
+.member-object{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 800px;
+    background-color: darkgray;
+    margin-left: 10px;
+}
+
+#member-object-container{
+    max-width: 800px;
+}
+
+.object-btns{
+ display: grid;
+ grid-row: 1fr 1fr;
+ place-items: center;
+}
+
+.object-btns button{
+    width:50%;
+    height: 75%;
+}
+
+.object-btns button:hover{
+    cursor: pointer;
+}
 
 
 
