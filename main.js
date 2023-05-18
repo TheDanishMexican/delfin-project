@@ -1,12 +1,12 @@
-import { validatePassword } from "/modules/validate.js";
-import { showNewMemberDialog, closeDialog } from "/modules/dialog.js";
-import { showAll, showFilteredSwimmers } from "/modules/display.js";
-import { showValidatePasswordDialog } from "/modules/display.js";
-import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
+import { validatePassword } from "./modules/validate.js";
+import { showNewMemberDialog, closeDialog } from "./modules/dialog.js";
+import { showAll, showFilteredSwimmers } from "./modules/display.js";
+import { showValidatePasswordDialog } from "./modules/display.js";
+import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "./modules/display.js";
 import { showEditMemberDialog } from "./modules/dialog.js";
 import { CloseTop5JuniorDialog, showTop5JuniorDialog, updateTotalIncome } from "./modules/display.js";
-import {deleteMemberClicked} from "/modules/submit.js";
-import{closeDeleteDialog} from"/modules/display.js"
+import {deleteMemberClicked} from "./modules/submit.js";
+import{closeDeleteDialog} from"./modules/display.js"
 import { closePaidDialog } from "./modules/display.js";
 import { filterByMembershipStatus } from "./modules/filter.js";
 
