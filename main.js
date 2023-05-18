@@ -4,7 +4,7 @@ import { showAll, showFilteredSwimmers } from "/modules/display.js";
 import { showValidatePasswordDialog } from "/modules/display.js";
 import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
 import { showEditMemberDialog } from "./modules/dialog.js";
-import { CloseTop5JuniorDialog, showTop5JuniorDialog } from "./modules/display.js";
+import { CloseTop5JuniorDialog, showTop5JuniorDialog, updateTotalIncome } from "./modules/display.js";
 import {deleteMemberClicked} from "/modules/submit.js";
 import{closeDeleteDialog} from"/modules/display.js"
 import { closePaidDialog } from "./modules/display.js";
@@ -259,25 +259,7 @@ export function calculateTotalAmountOwed(memberArray) {
   return totalAmountOwed;
 }
 
-export async function updateTotalIncome() {
-  const memberData = await getData(endpoint);
-  const memberArray = prepareData(memberData);
-  const total = totalIncome(memberArray);
-  const totalAmountOwed = calculateTotalAmountOwed(memberArray);
-  const realIncome=total-totalAmountOwed;
 
-  const totalIncomeElement = document.querySelector("#total-income");
-  const realIncomeElement = document.querySelector("#real-income");
-
-  if (totalIncomeElement) {
-    totalIncomeElement.innerHTML = total.toFixed(2);
-    // toFixed sætter decimaler på (2) = 2 decimaler
-  }
-
-  if (realIncomeElement) {
-    realIncomeElement.innerHTML = realIncome.toFixed(2);
-  }
-}
 
 
 

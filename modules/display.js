@@ -2,6 +2,7 @@ import { showAddResultDialog } from "./dialog.js";
 import { getData, prepareData } from "/main.js";
 import { showEditMemberDialog } from "/modules/dialog.js";
 import { dialogPaidBill } from "./dialog.js";
+import { calculateTotalAmountOwed, totalIncome } from "../main.js";
 
 
 const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -204,8 +205,25 @@ export function closePaidDialog(){
   dialog.close();
 }
 
+export async function updateTotalIncome() {
+  const memberData = await getData(endpoints);
+  const memberArray = prepareData(memberData);
+  const total = totalIncome(memberArray);
+  const totalAmountOwed = calculateTotalAmountOwed(memberArray);
+  const realIncome=total-totalAmountOwed;
 
+  const totalIncomeElement = document.querySelector("#total-income");
+  const realIncomeElement = document.querySelector("#real-income");
 
+  if (totalIncomeElement) {
+    totalIncomeElement.innerHTML = total.toFixed(2);
+    // toFixed sætter decimaler på (2) = 2 decimaler
+  }
+
+  if (realIncomeElement) {
+    realIncomeElement.innerHTML = realIncome.toFixed(2);
+  }
+}
 
 
 
