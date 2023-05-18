@@ -334,9 +334,10 @@ background-color: greenyellow;
     max-width: 800px;
     background-color: aqua;
     margin-left: 10px;
-    border-radius: 5px;
     border: 1px solid black;
 }
+
+
 
 #member-object-container{
     max-width: 800px;
@@ -411,7 +412,26 @@ dt{
   place-items: center;
 }
 
+.detailed-obj-table {
+    border-collapse: collapse;
+    width: 100%;
+}
 
+.detailed-obj-table th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.detailed-obj-table th {
+    background-color: #f2f2f2;
+}
+
+.obj-name{
+    font-weight: lighter;
+    font-size: smaller;
+    text-decoration: underline;
+}
 
 
 

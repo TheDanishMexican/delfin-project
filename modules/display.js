@@ -1,4 +1,4 @@
-import { showAddResultDialog } from "./dialog.js";
+import { closeDialog, showAddResultDialog } from "./dialog.js";
 import { getData, prepareData } from "/main.js";
 import { showEditMemberDialog } from "/modules/dialog.js";
 import { dialogPaidBill } from "./dialog.js";
@@ -228,11 +228,49 @@ export async function updateTotalIncome() {
 }
 
 export function showDetailDialog(obj){
-  console.log(obj);
+  document.querySelector(".x-button").addEventListener("click", closeDialog);
+  const dialog = document.querySelector("#detail-dialog");
+  showDetailObject(obj);
+  dialog.showModal();
 }
 
-
-
+export function showDetailObject(obj){
+  document.querySelector("#obj-table").innerHTML = "";
+const html = /*html*/ `
+<div  class="detailed-obj">
+<table class="detailed-obj-table">
+    <h3>
+        Medlemsinformation: <p class="obj-name">${obj.name}</p>
+    </h3>
+  <tr>
+    <th>Type af medlem</th>
+    <th>Alder</th>
+    <th>Email</th>
+    <th>Adresse</th>
+  </tr>
+  <tr>
+    <td>${obj.swimmerType}</td>
+    <td>${obj.age} år</td>
+    <td>${obj.email}</td>
+    <td>${obj.address}</td>
+  </tr>
+  <tr>
+    <th>Konkurrence svømmer</th>
+    <th>Medlemsskab status</th>
+    <th>Kontingent status</th>
+    <th>Telefon nummer</th>
+  </tr>
+  <tr>
+    <td>${obj.isCompetitionSwimmer}</td>
+    <td>${obj.membershipType}</td>
+    <td>Skylder ${obj.amountOwed}kr</td>
+    <td>${obj.phoneNumber}</td>
+  </tr>
+</table>
+    </div>
+` 
+document.querySelector("#obj-table").insertAdjacentHTML("beforeend", html);
+}
 
 
 
