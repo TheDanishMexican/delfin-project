@@ -26,8 +26,6 @@ export function filterByMembershipStatus(array, event) {
     } else {
         for (const swimmer of array) {
             showOne(swimmer);
-    } }
-    
-    
+    } }   
 }
 
