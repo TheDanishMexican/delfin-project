@@ -28,6 +28,7 @@ export function showOne(obj) {
     <div class="member-object">
       <div class="personal-information">
         <p>${obj.name}</p>
+        <br>
         <p>${obj.age} år</p>
       </div>
       <div class="swim-information">
@@ -37,7 +38,7 @@ export function showOne(obj) {
         </div> 
       <div class="object-btns">
         <button class="delete-btn">Slet</button>
-        <button class="edit-btn">Ret info</button>
+        <button class="edit-btn">Rediger</button>
       </div> 
     </div>
   </section>  
@@ -52,6 +53,9 @@ export function showOne(obj) {
     
     document.querySelector("#member-object-container section:last-child .edit-btn").addEventListener("click", () => showEditMemberDialog());
     
+    document.querySelector("#member-object-container section:last-child .swim-information")
+    .addEventListener("click", () => showDetailDialog(obj));
+
   } 
 }
 
@@ -114,6 +118,8 @@ export function showSwimmer(obj) {
 
       document.querySelector("#elite-swimmers-container section:last-child .add-result-button")
       .addEventListener("click", () => showAddResultDialog(obj));
+
+      
 
     };
 }
@@ -219,6 +225,10 @@ export async function updateTotalIncome() {
   if (realIncomeElement) {
     realIncomeElement.innerHTML = realIncome.toFixed(2);
   }
+}
+
+export function showDetailDialog(obj){
+  console.log(obj);
 }
 
 
