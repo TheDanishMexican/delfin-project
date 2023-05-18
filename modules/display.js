@@ -3,7 +3,7 @@ import { getData, prepareData } from "/main.js";
 import { showEditMemberDialog } from "/modules/dialog.js";
 import { dialogPaidBill } from "./dialog.js";
 import { calculateTotalAmountOwed, totalIncome } from "../main.js";
-import { filterByMembershipStatus } from "./filter.js";
+import { filterByMembershipStatus, filterByPaymentStatus } from "./filter.js";
 
 
 const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -16,6 +16,9 @@ export function showAll(array) {
   if (document.querySelector("#cashier-members-container")){
     document.querySelector("#cashier-members-container").innerHTML ="";
   }
+  if(document.querySelector("#payment-select")) {  
+    document.querySelector("#payment-select").addEventListener("change", () => filterByPaymentStatus(array, event))
+   }
   if(document.querySelector("#active-status-select")) {  
     document.querySelector("#active-status-select").addEventListener("change", () => filterByMembershipStatus(array, event))
    }
@@ -179,11 +182,11 @@ const html = /*html*/`
 <div class="cashier-members-item" id="member-${obj.id}">
 <div class="personal-information">
 <p>${obj.name}</p>
-<p>Alder: ${obj.age}</p>
+<p>Alder: ${obj.age} år</p>
 <br>
 </div>
 <div class="swim-information">
-<p>Skyldigt beløb: ${obj.amountOwed}</p>
+<p>Skyldigt beløb: ${obj.amountOwed} kr</p>
 <button class="pay-btn">Betalt</button>
 </div>
 </div>
@@ -278,6 +281,9 @@ const html = /*html*/ `
 document.querySelector("#obj-table").insertAdjacentHTML("beforeend", html);
 }
 
+export function resetSelect() {
+  document.querySelector(".close-select").selectedIndex = 0; 
+}
 
 
 

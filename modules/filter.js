@@ -1,4 +1,4 @@
-import { showOne } from "./display.js";
+import { showCashier, showOne } from "./display.js";
 
 export function filterByMembershipStatus(array, event) {
     if(document.querySelector("#member-object-container")){
@@ -26,6 +26,35 @@ export function filterByMembershipStatus(array, event) {
     } else {
         for (const swimmer of array) {
             showOne(swimmer);
+    } }   
+}
+
+export function filterByPaymentStatus(array, event) {
+    if (document.querySelector("#cashier-members-container")){
+        document.querySelector("#cashier-members-container").innerHTML =""
+    }
+
+    if(event.target.value === "betalt") {
+
+        const filteredHasPaid = array
+        .filter(swimmer => swimmer.amountOwed === 0 )
+
+        for (const swimmer of filteredHasPaid) {
+            showCashier(swimmer);
+        }
+
+    } else if (event.target.value === "skylder") {
+
+        const filteredHasNotPaid = array
+        .filter(swimmer => swimmer.amountOwed > 0 )
+
+        for (const swimmer of filteredHasNotPaid) {
+            showCashier(swimmer);
+        }
+
+    } else {
+        for (const swimmer of array) {
+            showCashier(swimmer);
     } }   
 }
 
