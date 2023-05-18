@@ -3,6 +3,7 @@ import { getData, prepareData } from "/main.js";
 import { showEditMemberDialog } from "/modules/dialog.js";
 import { dialogPaidBill } from "./dialog.js";
 import { calculateTotalAmountOwed, totalIncome } from "../main.js";
+import { filterByMembershipStatus } from "./filter.js";
 
 
 const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -15,11 +16,16 @@ export function showAll(array) {
   if (document.querySelector("#cashier-members-container")){
     document.querySelector("#cashier-members-container").innerHTML ="";
   }
+  if(document.querySelector("#active-status-select")) {  
+    document.querySelector("#active-status-select").addEventListener("change", () => filterByMembershipStatus(array, event))
+   }
 
     for (const member of array) {
         showCashier(member);
         showOne(member);
+        
     };
+
 }
 
 export function showOne(obj) {

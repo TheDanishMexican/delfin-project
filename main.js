@@ -8,6 +8,7 @@ import { CloseTop5JuniorDialog, showTop5JuniorDialog, updateTotalIncome } from "
 import {deleteMemberClicked} from "/modules/submit.js";
 import{closeDeleteDialog} from"/modules/display.js"
 import { closePaidDialog } from "./modules/display.js";
+import { filterByMembershipStatus } from "./modules/filter.js";
 
 
 window.addEventListener("load", start);
@@ -30,6 +31,7 @@ export async function start() {
     const Delete = document.querySelector("#form-delete");
     const deleteCancel = document.querySelector(".btn-cancel");
     const paidCancel = document.querySelector(".btn-cncl");
+    const filterSelect = document.querySelector("#active-status-select");
     
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
