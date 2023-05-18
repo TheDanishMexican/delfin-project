@@ -17,7 +17,7 @@
 
 #new-member-button{
     background: lightgrey;
-	color: blue;
+	color:black;
 	border: none;
 	padding: 4px;
 	font:inherit;
@@ -25,12 +25,12 @@
     font-size: 12px;
 	cursor: pointer;
 	outline: inherit;
-    border: 1px solid blue;
+    border: 1px solid black;
     border-radius: 10px;
 }
 
 #grid-container-nav-menu img{
-    width: 75px;
+    width: 100px;
 }
 
 #nav-links{
@@ -339,14 +339,18 @@ background-color: greenyellow;
 .member-object{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 10px;
     max-width: 800px;
-    background-color: darkgray;
+    background-color: aqua;
     margin-left: 10px;
+    border-radius: 10px;
 }
 
 #member-object-container{
     max-width: 800px;
 }
+
+
 
 .object-btns{
  display: grid;
@@ -355,13 +359,45 @@ background-color: greenyellow;
 }
 
 .object-btns button{
+    border-radius: 10px;
     width:50%;
     height: 75%;
 }
 
 .object-btns button:hover{
     cursor: pointer;
+    background-color: darkgray;
 }
+
+.personal-information p{
+    transform: translate(0%, 200%);
+}
+
+#body-grid-container{
+    display: grid;
+    grid-template-columns: 72fr 1fr 48fr;
+}
+
+dt{
+    text-decoration: underline;
+}
+
+#faq{
+    border-radius: 10px;
+    background-color: aqua;
+    margin-right: 15px;
+    grid-column: 3;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#faq h3{
+    text-align: center;
+}
+
+
+
+
 
 
 

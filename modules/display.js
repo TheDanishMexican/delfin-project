@@ -27,16 +27,15 @@ export function showOne(obj) {
       <div class="personal-information">
         <p>${obj.name}</p>
         <p>${obj.age} år</p>
-        <p>Medlemskabstype: ${obj.membershipType}</p>
       </div>
       <div class="swim-information">
-       <p><strong>Adresse:</strong> ${obj.address}</p> 
-        <p><strong>E-mail:</strong> ${obj.email}</p>
-        <p><strong>Telefonnummer:</strong> ${obj.phoneNumber}</p>
+       <p><strong>Adresse:</strong> <br> ${obj.address}</p> 
+        <p><strong>E-mail:</strong> <br> ${obj.email}</p>
+        <p><strong>Telefonnummer:</strong> <br> ${obj.phoneNumber}</p>
         </div> 
       <div class="object-btns">
         <button class="delete-btn">Slet</button>
-        <button class="edit-btn">Ret oplysninger</button>
+        <button class="edit-btn">Ret info</button>
       </div> 
     </div>
   </section>  
@@ -165,14 +164,11 @@ const html = /*html*/`
 <section>
 <div class="cashier-members-item" id="member-${obj.id}">
 <div class="personal-information">
-<p>Navn: ${obj.name}</p>
+<p>${obj.name}</p>
 <p>Alder: ${obj.age}</p>
-<p>Adresse: ${obj.address}</p>
+<br>
 </div>
 <div class="swim-information">
-<p>Medlemskabstype: ${obj.membershipType}</p>
-<p>E-mail: ${obj.email}</p>
-<p>Telefonnummer: ${obj.phoneNumber}</p>
 <p>Skyldigt beløb: ${obj.amountOwed}</p>
 <button class="pay-btn">Betalt</button>
 </div>
