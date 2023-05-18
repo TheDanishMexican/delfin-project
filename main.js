@@ -252,7 +252,8 @@ export function calculateTotalAmountOwed(memberArray) {
 
   for (const member of memberArray) {
      console.log("Amount owed:", member.amountOwed);
-    totalAmountOwed += member.amountOwed;
+    totalAmountOwed += parseFloat(member.amountOwed);
+    // parseFloat konvertere strenge til numeriske værdier
   }
 
   return totalAmountOwed;
@@ -270,6 +271,7 @@ export async function updateTotalIncome() {
 
   if (totalIncomeElement) {
     totalIncomeElement.innerHTML = total.toFixed(2);
+    // toFixed sætter decimaler på (2) = 2 decimaler
   }
 
   if (realIncomeElement) {
