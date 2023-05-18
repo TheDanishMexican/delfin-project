@@ -16,15 +16,17 @@
 }
 
 #new-member-button{
-    background: none;
+    background: lightgrey;
 	color: blue;
 	border: none;
-	padding: 0;
+	padding: 4px;
 	font:inherit;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
 	cursor: pointer;
 	outline: inherit;
+    border: 1px solid blue;
+    border-radius: 10px;
 }
 
 #grid-container-nav-menu img{
@@ -63,8 +65,8 @@
     transition: 0.5s;
 }
 
-#new-member-button:hover::after{
-    width: 100%;
+#new-member-button:hover{
+    background-color: darkgray;
 }
 
 #nav-links ul li:hover::after{
@@ -86,6 +88,10 @@
     left:50%;
     transform: translate(-65%, -10%);
     text-align: center;
+}
+
+.text-box h1{
+    font-size:30px;
 }
 
 body {
@@ -323,6 +329,7 @@ background-color: red;
 .amount-owned-green {
 background-color: greenyellow;
 }
+
 
 
 
