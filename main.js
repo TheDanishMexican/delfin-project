@@ -247,14 +247,33 @@ export function totalIncome(memberArray) {
   return totalIncome;
 }
 
+export function calculateTotalAmountOwed(memberArray) {
+  let totalAmountOwed = 0;
+
+  for (const member of memberArray) {
+     console.log("Amount owed:", member.amountOwed);
+    totalAmountOwed += member.amountOwed;
+  }
+
+  return totalAmountOwed;
+}
+
 export async function updateTotalIncome() {
   const memberData = await getData(endpoint);
   const memberArray = prepareData(memberData);
   const total = totalIncome(memberArray);
+  const totalAmountOwed = calculateTotalAmountOwed(memberArray);
+  const realIncome=total-totalAmountOwed;
 
   const totalIncomeElement = document.querySelector("#total-income");
+  const realIncomeElement = document.querySelector("#real-income");
+
   if (totalIncomeElement) {
     totalIncomeElement.innerHTML = total.toFixed(2);
+  }
+
+  if (realIncomeElement) {
+    realIncomeElement.innerHTML = realIncome.toFixed(2);
   }
 }
 
