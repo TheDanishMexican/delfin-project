@@ -310,10 +310,6 @@ h1 {
     background-color: aquamarine;
 }
 
-.cashier-members-item{
-border: solid black;
-}
-
 .amount-owned-red {
 background-color: red;
 }
@@ -446,5 +442,19 @@ dt{
     margin-left: 50%;
 }
 
+#cashier-members-container section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 10px;
+    max-width: 800px;
+    margin-left: 10px;
+    border: 1px solid black;
+    max-width: 500px;
+}
 
-
+#cashier-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+}

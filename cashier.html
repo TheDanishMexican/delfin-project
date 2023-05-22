@@ -8,27 +8,32 @@
 </head>
 <link rel="stylesheet" href="style.css">
 <header id="cashier-header">
-<nav id="cashier-nav">
-<div id="grid-container-cashier">
-<div class="h1-container">
-<h1>Kasserer side</h1>
+      <div id="payment-select">
+          <label for="payment-status" id="payment-status-label">Filtrer visning på <br> betalings status</label>
+              <br><select name="payment-status" id="payment-status-select" class="close-select">
+                      <option value=""></option selected>
+                      <option value="betalt">Har betalt</option>
+                      <option value="skylder">Skylder</option>
+                  </select>
+      </div>
+      <div class="h1-container">
+        <h2>Kasserer side</h2>
+      </div>
+      <div id="members-container-cashier">
+      <a href="/admin.html">Members page</a>
+      </div>
+      <div id="totals">
+<div id="sum-of-income-container">Indkomst i alt:
+<span id="total-income"></span>
 </div>
-        <div id="payment-select">
-            <label for="payment-status" id="payment-status-label">Filtrer visning på <br> betalings status</label>
-                <br><select name="payment-status" id="payment-status-select" class="close-select">
-                        <option value=""></option selected>
-                        <option value="betalt">Har betalt</option>
-                        <option value="skylder">Skylder</option>
-                    </select>
-        </div>
+
+  <div id="real-income-container">Reel indkomst: 
+    <span id="real-income"></span>
+  </div>
 </div>
-<div id="grid-container-nav-menu-cashier">
-<div id="members-container-cashier">
-<a href="/admin.html">Members page</a>
-</div>
-</div>
-</nav>
 </header>
+
+
 <body>
 <div id="cashier-members-container"></div>
 <dialog id="paid-dialog">
@@ -38,14 +43,6 @@
 <button type="button" class="btn-cncl">Nej</button>
 </form>
 </dialog>
-
-<div id="sum-of-income-container">Indkomst i alt:
-<span id="total-income"></span>
-</div>
-
-<div id="real-income-container">
-    Reel indkomst: <span id="real-income"></span>
-  </div>
 
 <script type="module" src="main.js"></script>
 <script type="module" src="modules/dialog.js"></script>
