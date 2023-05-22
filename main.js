@@ -15,7 +15,7 @@ import { filterByMembershipStatus } from "./modules/filter.js";
 
 window.addEventListener("load", start);
 
-const endpoint = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
+export const endpoint = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
 
 export async function start() {
     const addButton = document.querySelector("#new-member-button");

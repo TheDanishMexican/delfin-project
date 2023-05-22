@@ -1,5 +1,8 @@
 "use strict"
 
+import { endpoint, updateMembersGrid } from "../main.js";
+import { closeDialog } from "./dialog.js";
+
 
 export async function updateMemberClicked(event){
     event.preventDefault();
@@ -37,20 +40,17 @@ export async function updateMemberClicked(event){
 // Patch request with member object to endpoint
 export async function updateMemberData(memberID, memberToUpdate){
 
-    console.log(memberID);
-    console.log(memberToUpdate);
-
-
 const response = await fetch(`${endpoint}members/${memberID}.json`, {
     method: "PATCH",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({memberToUpdate}),
+    body: JSON.stringify(memberToUpdate),
 })
 if (response.ok){
     console.log("your member was updated");
-showToastMessage("Medlemmet er opdateret :-)");
+    closeDialog();
+    updateMembersGrid();
+        
 } else{
     console.log("Error: member not updated");
-    showToastMessage("Hovsa sovsa, noget gik galt." <br> "Er det hele korrekt indtastet? ");
+
 }
 }
