@@ -7,9 +7,15 @@ import { closeDialog } from "./dialog.js";
 export async function updateMemberClicked(event){
     event.preventDefault();
     const form = event.target;
+
+    const dateOfBirth = new Date(form.age.value);
+    const todayDate = new Date();
+
+    const calculatedAge = todayDate.getFullYear() - dateOfBirth.getFullYear();
+
     const memberID=form.getAttribute("data-id")
     const name= form.name.value
-    const age = form.age.value
+    const age = calculatedAge
     const address = form.address.value
     const phone = form.phone.value
     const email = form.email.value
