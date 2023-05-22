@@ -145,6 +145,8 @@ export async function createMember(fullName, age, address, phoneNumber, email, s
         }
     );
     if (response.ok) {
+        updateMembersGrid();
+        closeDialog();
         console.log("New member created")
     };
 }

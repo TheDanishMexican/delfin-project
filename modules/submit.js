@@ -6,11 +6,15 @@ import { closePaidDialog } from "./display.js";
 
 export function CreateSubmitClicked(event) {
     event.preventDefault();
-
     const form = event.target;
 
+    const dateOfBirth = new Date(form.age.value);
+    const todayDate = new Date();
+
+    const calculatedAge = todayDate.getFullYear() - dateOfBirth.getFullYear();
+
     const fullName = form.name.value;
-    const age = form.age.value;
+    const age = calculatedAge;
     const address = form.address.value;
     const phoneNumber = form.phone.value;
     const email = form.email.value;
