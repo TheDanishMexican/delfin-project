@@ -6,7 +6,7 @@ import { calculateTotalAmountOwed, totalIncome } from "../main.js";
 import { filterByMembershipStatus, filterByPaymentStatus } from "./filter.js";
 
 
-const endpoint = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
+const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
 
 
 export function showAll(array) {

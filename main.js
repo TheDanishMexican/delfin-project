@@ -6,9 +6,6 @@ import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "./modules/dis
 import { showEditMemberDialog } from "./modules/dialog.js";
 import { CloseTop5JuniorDialog, showTop5JuniorDialog, updateTotalIncome } from "./modules/display.js";
 import {deleteMemberClicked} from "./modules/submit.js";
-import{closeDeleteDialog} from"./modules/display.js"
-import { CloseTop5JuniorDialog, showTop5JuniorDialog } from "./modules/display.js";
-import { deleteMemberClicked} from "/modules/submit.js";
 import { closeDeleteDialog} from"/modules/display.js"
 import { closePaidDialog } from "./modules/display.js";
 import { updateMemberClicked } from "./modules/updateMember.js";
