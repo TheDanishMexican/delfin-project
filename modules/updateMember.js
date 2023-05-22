@@ -2,37 +2,15 @@
 
 
 export async function updateMemberClicked(event){
-    event.preventDefault();
+    console.log(event);
     const form = event.target
-    console.log(form);
-    const memberID= form.memberID.value
-    console.log(form)
-
-    form.name.value = obj.name
-
-    const member = {
-        name: form.name.value,
-        address: form.address.value,
-        age: form.age.value,
-        amountOwed: form.amountOwed.value,
-        competitionResults:{
-            date: form.date.value,
-            discipline: form.discipline.value,
-            result: form.result.value,
-        } ,
-        discipline:{
-
-            // ved ikke
-        },
-        email: form.email.value,
-        // isComptSwimmer: form.isCompetitionSwimmer.boolean,?
-        membershipType: form.membershipType.value,
-        // owesMoney: form.owesMoney.boolean,?
-        phoneNumber: form.phoneNumber.value,
-        swimmerType: form.swimmerType.value,
-    }
+    const memberID=form.getAttribute("data-id")
+    const name= form.name.value
+    console.log(name);
     
-    submitUpdateMember(memberID, key, endpoint);
+
+    
+    // updateMemberData(obj, key, endpoint);
 }
 
 /*---------------UPDATE------------*/

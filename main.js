@@ -88,6 +88,7 @@ export async function start() {
     }
   
 
+
     showAll(preparedArray);
     showFilteredSwimmers();
     updateTotalIncome();

@@ -14,7 +14,6 @@ export function showNewMemberDialog() {
 
 
 export function showEditMemberDialog(obj){
-const submitEditBtn = document.querySelector(`#edit-member-form-submit-button`)
 const form = document.querySelector("#edit-member-form")
 form.setAttribute("data-id", obj.id)
 
@@ -31,8 +30,8 @@ form.competitionSwimmer.checked=obj.isCompetitionSwimmer
 
 
   document.querySelector("#edit-member-dialog").showModal()
-      if(submitEditBtn){
-    submitEditBtn.addEventListener("click", ()=> updateMemberClicked(obj));
+      if(form){
+    form.addEventListener("submit", updateMemberClicked());
     }
   
 
