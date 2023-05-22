@@ -29,7 +29,7 @@ export function showOne(obj) {
         </div> 
       <div class="object-btns">
         <button class="delete-btn">Slet</button>
-      <button class="edit-btn">Ret oplysninger</button>
+        <button class="edit-btn">Ret oplysninger</button>
       </div> 
     </div>
   </section>  
@@ -42,7 +42,7 @@ export function showOne(obj) {
     document.querySelector("#member-object-container section:last-child .delete-btn")
       .addEventListener("click", () => showDeleteDialog(obj));
     
-    document.querySelector("#member-object-container section:last-child .edit-btn").addEventListener("click", () => showEditMemberDialog());
+    document.querySelector("#member-object-container section:last-child .edit-btn").addEventListener("click", () => showEditMemberDialog(obj));
     
   } 
 }

@@ -3,10 +3,13 @@
 
 export async function updateMemberClicked(event){
     event.preventDefault();
-    
     const form = event.target
+    console.log(form);
     const memberID= form.memberID.value
     console.log(form)
+
+    form.name.value = obj.name
+
     const member = {
         name: form.name.value,
         address: form.address.value,

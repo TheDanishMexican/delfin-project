@@ -1,5 +1,6 @@
 import { SubmitMemberPaidBill } from "./submit.js";
 import { submitResultDisciplineClicked } from "./submit.js";
+import { updateMemberClicked } from "./updateMember.js";
 import { CreateSubmitClicked } from "/modules/submit.js";
 
 export function showNewMemberDialog() {
@@ -12,10 +13,29 @@ export function showNewMemberDialog() {
 }
 
 
-export function showEditMemberDialog(){
-   
-    document.querySelector("#edit-member-dialog").showModal()
+export function showEditMemberDialog(obj){
+const submitEditBtn = document.querySelector(`#edit-member-form-submit-button`)
+const form = document.querySelector("#edit-member-form")
+form.setAttribute("data-id", obj.id)
+
+form.name.value=obj.name,
+form.age.value=obj.age,
+form.address.value=obj.address,
+form.phone.value=obj.phoneNumber,
+form.email.value=obj.email,
+form.amountOwed.value=obj.amountOwed,
+form.owesMoney.checked=obj.owesMoney,
+form.membershipType.value=obj.membershipType,
+form.swimmerType.value=obj.swimmerType,
+form.competitionSwimmer.checked=obj.isCompetitionSwimmer
+
+
+  document.querySelector("#edit-member-dialog").showModal()
+      if(submitEditBtn){
+    submitEditBtn.addEventListener("click", ()=> updateMemberClicked(obj));
+    }
   
+
 }
 
 export function closeDialog(){

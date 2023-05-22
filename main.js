@@ -32,7 +32,7 @@ export async function start() {
     const Delete = document.querySelector("#form-delete");
     const deleteCancel = document.querySelector(".btn-cancel");
     const paidCancel = document.querySelector(".btn-cncl");
-    const submitEditBtn = document.querySelector(`button[id^=edit-member-form-submit]`)
+    
     
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -86,9 +86,7 @@ export async function start() {
     if(paidCancel){
     paidCancel.addEventListener("click",closePaidDialog);
     }
-    if(submitEditBtn){
-    submitEditBtn.addEventListener("click", updateMemberClicked);
-    }
+  
 
     showAll(preparedArray);
     showFilteredSwimmers();
