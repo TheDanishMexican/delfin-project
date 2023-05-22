@@ -31,7 +31,7 @@ form.competitionSwimmer.checked=obj.isCompetitionSwimmer
 
   document.querySelector("#edit-member-dialog").showModal()
       if(form){
-    form.addEventListener("submit", updateMemberClicked());
+    form.addEventListener("submit", updateMemberClicked);
     }
   
 

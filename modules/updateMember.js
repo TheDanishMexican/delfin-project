@@ -2,29 +2,49 @@
 
 
 export async function updateMemberClicked(event){
-    console.log(event);
-    const form = event.target
+    event.preventDefault();
+    const form = event.target;
     const memberID=form.getAttribute("data-id")
     const name= form.name.value
-    console.log(name);
-    
+    const age = form.age.value
+    const address = form.address.value
+    const phone = form.phone.value
+    const email = form.email.value
+    const amountOwed = form.amountOwed.value
+    const owesMoney = form.owesMoney.checked
+    const type = form.membershipType.value
+    const swimmerType = form.swimmerType.value
+    const isCompSwimmer = form.competitionSwimmer.checked
+    const memberToUpdate = {
+     address: address,
+     age: age,
+     amountOwed: amountOwed,
+     email: email,
+     isCompetitionSwimmer: isCompSwimmer,
+     membershipType: type,
+     name: name,
+     owesMoney: owesMoney,
+     phoneNumber: phone,
+     swimmerType: swimmerType
+    }
+    updateMemberData(memberID, memberToUpdate);
+   
 
-    
-    // updateMemberData(obj, key, endpoint);
+
 }
 
 /*---------------UPDATE------------*/
 // Patch request with member object to endpoint
-export async function submitUpdateMember(member, key, endpoint){
-    // fillUpdateForm(memberObj); <------------------------------ skal laves inden aflevering
-        const form = document.querySelector("#edit-member-form")
-        
+export async function updateMemberData(memberID, memberToUpdate){
+
+    console.log(memberID);
+    console.log(memberToUpdate);
 
 
-const response = await fetch(`${endpoint}members/${key}.json`, {
+const response = await fetch(`${endpoint}members/${memberID}.json`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({member}),
+    body: JSON.stringify({memberToUpdate}),
 })
 if (response.ok){
     console.log("your member was updated");
