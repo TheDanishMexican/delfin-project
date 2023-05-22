@@ -2,11 +2,13 @@ import { createMember } from "/main.js";
 import { updateSwimResults } from "/main.js";
 import {deleteMember} from "/main.js";
 import { memberPayed } from "../main.js";
+import { closePaidDialog } from "./display.js";
 
 export function CreateSubmitClicked(event) {
     event.preventDefault();
 
     const form = event.target;
+
     const fullName = form.name.value;
     const age = form.age.value;
     const address = form.address.value;
@@ -30,9 +32,7 @@ export function CreateSubmitClicked(event) {
     createMember(fullName, age, address, phoneNumber, email, swimmerType,
         membershipType, competitionSwimmer, disciplines, amountOwed, owesMoney);
     
-    closeNewMemberDialog();
-
-    
+    // closeNewMemberDialog();   
 }
 
 export function submitResultDisciplineClicked(event) {
@@ -63,6 +63,8 @@ obj.owesMoney = false;
 const id = obj.id;
 
 memberPayed(obj, id);
+
+closePaidDialog(id);
 
 }
 

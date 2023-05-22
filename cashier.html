@@ -13,6 +13,14 @@
 <div class="h1-container">
 <h1>Kasserer side</h1>
 </div>
+        <div id="payment-select">
+            <label for="payment-status" id="payment-status-label">Filtrer visning på <br> betalings status</label>
+                <br><select name="payment-status" id="payment-status-select" class="close-select">
+                        <option value=""></option selected>
+                        <option value="betalt">Har betalt</option>
+                        <option value="skylder">Skylder</option>
+                    </select>
+        </div>
 </div>
 <div id="grid-container-nav-menu-cashier">
 <div id="members-container-cashier">
@@ -30,10 +38,20 @@
 <button type="button" class="btn-cncl">Nej</button>
 </form>
 </dialog>
+
+<div id="sum-of-income-container">Indkomst i alt:
+<span id="total-income"></span>
+</div>
+
+<div id="real-income-container">
+    Reel indkomst: <span id="real-income"></span>
+  </div>
+
 <script type="module" src="main.js"></script>
 <script type="module" src="modules/dialog.js"></script>
 <script type="module" src="modules/display.js"></script>
 <script type="module" src="modules/filter.js"></script>
 <script type="module" src="modules/submit.js"></script>
+
 </body>
 </html>

@@ -1,15 +1,19 @@
-import { validatePassword } from "/modules/validate.js";
-import { showNewMemberDialog, closeDialog } from "/modules/dialog.js";
-import { showAll, showFilteredSwimmers } from "/modules/display.js";
-import { showValidatePasswordDialog } from "/modules/display.js";
-import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "/modules/display.js";
+import { validatePassword } from "./modules/validate.js";
+import { showNewMemberDialog, closeDialog } from "./modules/dialog.js";
+import { showAll, showFilteredSwimmers } from "./modules/display.js";
+import { showValidatePasswordDialog } from "./modules/display.js";
+import { showTop5Dialog, closeTop5Dialog, showTop5Swimmers } from "./modules/display.js";
 import { showEditMemberDialog } from "./modules/dialog.js";
+import { CloseTop5JuniorDialog, showTop5JuniorDialog, updateTotalIncome } from "./modules/display.js";
+import {deleteMemberClicked} from "./modules/submit.js";
+import{closeDeleteDialog} from"./modules/display.js"
 import { CloseTop5JuniorDialog, showTop5JuniorDialog } from "./modules/display.js";
 import { deleteMemberClicked} from "/modules/submit.js";
 import { closeDeleteDialog} from"/modules/display.js"
 import { closePaidDialog } from "./modules/display.js";
 import { updateMemberClicked } from "./modules/updateMember.js";
 
+import { filterByMembershipStatus } from "./modules/filter.js";
 
 
 window.addEventListener("load", start);
@@ -32,7 +36,7 @@ export async function start() {
     const Delete = document.querySelector("#form-delete");
     const deleteCancel = document.querySelector(".btn-cancel");
     const paidCancel = document.querySelector(".btn-cncl");
-    
+    const filterSelect = document.querySelector("#active-status-select");
     
     if (loginBtn) {
         loginBtn.addEventListener("click", showValidatePasswordDialog)
@@ -72,7 +76,6 @@ export async function start() {
     if (exitBtns) {
         exitBtns.forEach(exitBtn => {
             exitBtn.addEventListener("click", closeDialog);
-            console.log("evtlstn tilføjet");
         });
         
     };
@@ -90,6 +93,7 @@ export async function start() {
 
     showAll(preparedArray);
     showFilteredSwimmers();
+    updateTotalIncome();
 }
 
 //*----CREATE----*//
@@ -158,7 +162,8 @@ export async function updateSwimResults(id, date, discipline, time) {
         result: time
         }]
   };
-  const form = document.querySelector("#dialog-add-swim-results");
+  const dialog = document.querySelector("#dialog-add-swim-results");
+  const form = document.querySelector("#form-add-svim-results");
   const stringified = JSON.stringify(updatedSwimmer);
   const response = await fetch(`${endpoint}/members/${id}.json`, {
     method: "PATCH",
@@ -166,8 +171,9 @@ export async function updateSwimResults(id, date, discipline, time) {
   });
 
   if (response.ok) {
-    console.log("Results added");
-    form.close();
+    showFilteredSwimmers();
+    form.reset();
+    dialog.close();
 
   } else (console.log("Error in results added"));
 
@@ -181,6 +187,7 @@ method: "DELETE",
 // check if response is ok - if the response is successful
 if (response.ok) {
 console.log("Nice deleted");
+updateMembersGrid();
 }
 }
 
@@ -196,9 +203,54 @@ body: stringified,
 })
  if (response.ok) {
 console.log("Member paid");
+updateMembersGrid();
  } else (console.log("Member did not pay"));
 }
 
+export async function updateMembersGrid() {
+    const memberData = await getData();
+    const memberArray = prepareData(memberData);
+    showAll(memberArray);
+     totalIncome(memberArray);
+    
+}
+
+export function totalIncome(memberArray) {
+  let totalIncome = 0;
+
+  for (const member of memberArray) {
+    const membershipType = member.membershipType;
+    const swimmerType = member.swimmerType;
+
+    if (membershipType === "active") {
+      if (swimmerType === "senior") {
+        if (member.age >= 60) {
+          totalIncome += 1200; // Senior (over 60 år) med rabat: 1200 kr. årligt
+        } else {
+          totalIncome += 1600; // Senior (18 år og over): 1600 kr. årligt
+        }
+      } else if (swimmerType === "junior") {
+        totalIncome += 1000; // Ungdomssvømmere (under 18 år): 1000 kr. årligt
+      }
+    } else if (membershipType === "passive") {
+      totalIncome += 500; // Passivt medlemskab: 500 kr. årligt
+    }
+  }
+
+  return totalIncome;
+}
+
+export function calculateTotalAmountOwed(memberArray) {
+  let totalAmountOwed = 0;
+
+  for (const member of memberArray) {
+     console.log("Amount owed:", member.amountOwed);
+    totalAmountOwed += parseFloat(member.amountOwed);
+    // parseFloat konvertere strenge til numeriske værdier
+  }
+
+  return totalAmountOwed;
+}
 
 
 

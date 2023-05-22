@@ -1,16 +1,34 @@
-import { showAddResultDialog } from "./dialog.js";
+import { closeDialog, showAddResultDialog } from "./dialog.js";
 import { getData, prepareData } from "/main.js";
 import { showEditMemberDialog } from "/modules/dialog.js";
 import { dialogPaidBill } from "./dialog.js";
+import { calculateTotalAmountOwed, totalIncome } from "../main.js";
+import { filterByMembershipStatus, filterByPaymentStatus } from "./filter.js";
+
 
 const endpoint = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
 
 
 export function showAll(array) {
+  if(document.querySelector("#member-object-container")){
+  document.querySelector("#member-object-container").innerHTML ="";
+  }
+  if (document.querySelector("#cashier-members-container")){
+    document.querySelector("#cashier-members-container").innerHTML ="";
+  }
+  if(document.querySelector("#payment-select")) {  
+    document.querySelector("#payment-select").addEventListener("change", () => filterByPaymentStatus(array, event))
+   }
+  if(document.querySelector("#active-status-select")) {  
+    document.querySelector("#active-status-select").addEventListener("change", () => filterByMembershipStatus(array, event))
+   }
+
     for (const member of array) {
         showCashier(member);
         showOne(member);
+        
     };
+
 }
 
 export function showOne(obj) {
@@ -19,17 +37,17 @@ export function showOne(obj) {
     <div class="member-object">
       <div class="personal-information">
         <p>${obj.name}</p>
+        <br>
         <p>${obj.age} år</p>
-        <p>Medlemskabstype: ${obj.membershipType}</p>
       </div>
       <div class="swim-information">
-       <p><strong>Adresse:</strong> ${obj.address}</p> 
-        <p><strong>E-mail:</strong> ${obj.email}</p>
-        <p><strong>Telefonnummer:</strong> ${obj.phoneNumber}</p>
+       <p><strong>Adresse:</strong> <br> ${obj.address}</p> 
+        <p><strong>E-mail:</strong> <br> ${obj.email}</p>
+        <p><strong>Telefonnummer:</strong> <br> ${obj.phoneNumber}</p>
         </div> 
       <div class="object-btns">
         <button class="delete-btn">Slet</button>
-        <button class="edit-btn">Ret oplysninger</button>
+        <button class="edit-btn">Rediger</button>
       </div> 
     </div>
   </section>  
@@ -44,6 +62,9 @@ export function showOne(obj) {
     
     document.querySelector("#member-object-container section:last-child .edit-btn").addEventListener("click", () => showEditMemberDialog(obj));
     
+    document.querySelector("#member-object-container section:last-child .swim-information")
+    .addEventListener("click", () => showDetailDialog(obj));
+
   } 
 }
 
@@ -56,6 +77,9 @@ export async function showForCoach() {
 
 export async function showFilteredSwimmers() {
     const array = await showForCoach();
+      if (document.querySelector("#elite-swimmers-container")){
+    document.querySelector("#elite-swimmers-container").innerHTML="";
+  }
     for (const swimmer of array) {
         showSwimmer(swimmer);
     };
@@ -63,6 +87,7 @@ export async function showFilteredSwimmers() {
 
 export function showSwimmer(obj) {
     const html = /*html*/ `
+    <section>
     <div class="elite-swimmer-item">
     <div class="swimmer-info">
         <p>${obj.name}</p>
@@ -93,14 +118,17 @@ export function showSwimmer(obj) {
           <button class="edit-result-button">Tilføj resultat</button>
         </div>
         </div>
-    </div>    
+    </div> 
+    </section>   
     `
     if(document.querySelector("#elite-swimmers-container")) {
       document.querySelector("#elite-swimmers-container")
         .insertAdjacentHTML("beforeend", html);
 
-      document.querySelector("#elite-swimmers-container div:last-child .add-result-button")
+      document.querySelector("#elite-swimmers-container section:last-child .add-result-button")
       .addEventListener("click", () => showAddResultDialog(obj));
+
+      
 
     };
 }
@@ -153,32 +181,27 @@ const html = /*html*/`
 <section>
 <div class="cashier-members-item" id="member-${obj.id}">
 <div class="personal-information">
-<p>Navn: ${obj.name}</p>
-<p>Alder: ${obj.age}</p>
-<p>Adresse: ${obj.address}</p>
+<p>${obj.name}</p>
+<p>Alder: ${obj.age} år</p>
+<br>
 </div>
 <div class="swim-information">
-<p>Medlemskabstype: ${obj.membershipType}</p>
-<p>E-mail: ${obj.email}</p>
-<p>Telefonnummer: ${obj.phoneNumber}</p>
-<p>Skyldigt beløb: ${obj.amountOwed}</p>
+<p>Skyldigt beløb: ${obj.amountOwed} kr</p>
 <button class="pay-btn">Betalt</button>
 </div>
 </div>
 </section>
 `;
 
-if(document.querySelector("#cashier-members-container")) {
+if (document.querySelector("#cashier-members-container")) {
+    document.querySelector("#cashier-members-container").insertAdjacentHTML("beforeend", html);
 
-document.querySelector("#cashier-members-container")
-.insertAdjacentHTML("beforeend", html);
+    setBackgroundColor(obj);
 
-setBackgroundColor(obj);
-
-document.querySelector("#cashier-members-container section:last-child .pay-btn")
-.addEventListener("click", () => dialogPaidBill(obj));
+    document.querySelector("#cashier-members-container section:last-child .pay-btn")
+      .addEventListener("click", () => dialogPaidBill(obj));
 }
-}
+  }
 
 function setBackgroundColor(obj) {
 if (obj.amountOwed > 0) {
@@ -189,15 +212,78 @@ document.querySelector("#cashier-members-container section:last-child").classLis
 }
 
 export function closePaidDialog(){
-document.querySelector("#paid-dialog").close();
+ const dialog = document.querySelector("#paid-dialog");
+  dialog.close();
 }
 
+export async function updateTotalIncome() {
+  const memberData = await getData(endpoints);
+  const memberArray = prepareData(memberData);
+  const total = totalIncome(memberArray);
+  const totalAmountOwed = calculateTotalAmountOwed(memberArray);
+  const realIncome=total-totalAmountOwed;
 
+  const totalIncomeElement = document.querySelector("#total-income");
+  const realIncomeElement = document.querySelector("#real-income");
 
+  if (totalIncomeElement) {
+    totalIncomeElement.innerHTML = total.toFixed(2);
+    // toFixed sætter decimaler på (2) = 2 decimaler
+  }
 
+  if (realIncomeElement) {
+    realIncomeElement.innerHTML = realIncome.toFixed(2);
+  }
+}
 
+export function showDetailDialog(obj){
+  document.querySelector(".x-button").addEventListener("click", closeDialog);
+  const dialog = document.querySelector("#detail-dialog");
+  showDetailObject(obj);
+  dialog.showModal();
+}
 
+export function showDetailObject(obj){
+  document.querySelector("#obj-table").innerHTML = "";
+const html = /*html*/ `
+<div  class="detailed-obj">
+<table class="detailed-obj-table">
+    <h3>
+        Medlemsinformation: <p class="obj-name">${obj.name}</p>
+    </h3>
+  <tr>
+    <th>Type af medlem</th>
+    <th>Alder</th>
+    <th>Email</th>
+    <th>Adresse</th>
+  </tr>
+  <tr>
+    <td>${obj.swimmerType}</td>
+    <td>${obj.age} år</td>
+    <td>${obj.email}</td>
+    <td>${obj.address}</td>
+  </tr>
+  <tr>
+    <th>Konkurrence svømmer</th>
+    <th>Medlemsskab status</th>
+    <th>Kontingent status</th>
+    <th>Telefon nummer</th>
+  </tr>
+  <tr>
+    <td>${obj.isCompetitionSwimmer}</td>
+    <td>${obj.membershipType}</td>
+    <td>Skylder ${obj.amountOwed}kr</td>
+    <td>${obj.phoneNumber}</td>
+  </tr>
+</table>
+    </div>
+` 
+document.querySelector("#obj-table").insertAdjacentHTML("beforeend", html);
+}
 
+export function resetSelect() {
+  document.querySelector(".close-select").selectedIndex = 0; 
+}
 
 
 

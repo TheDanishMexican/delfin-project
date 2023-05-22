@@ -41,7 +41,6 @@ form.competitionSwimmer.checked=obj.isCompetitionSwimmer
 export function closeDialog(){
 const dialog = document.querySelectorAll(".dialogs")
 const form = document.querySelector(".forms")
-console.log("gør det");
 
 dialog.forEach(dialog => {
     dialog.close();
@@ -85,8 +84,9 @@ document.querySelector("#dialog-delete-member").showModal();
 }
 
 export function dialogPaidBill(obj) {
-const submitBtn = document.querySelector("#form-paid");
+const submitBtn = document.querySelector("#confirm-pay-btn");
 const dialog = document.querySelector("#paid-dialog");
 submitBtn.addEventListener("click", () => SubmitMemberPaidBill(obj));
 dialog.showModal();
 }
+
