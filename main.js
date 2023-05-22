@@ -8,7 +8,7 @@ import { CloseTop5JuniorDialog, showTop5JuniorDialog } from "./modules/display.j
 import { deleteMemberClicked} from "/modules/submit.js";
 import { closeDeleteDialog} from"/modules/display.js"
 import { closePaidDialog } from "./modules/display.js";
-import { updateMember } from "./modules/updateMember.js";
+import { updateMemberClicked } from "./modules/updateMember.js";
 
 
 

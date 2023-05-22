@@ -3,7 +3,7 @@ import { getData, prepareData } from "/main.js";
 import { showEditMemberDialog } from "/modules/dialog.js";
 import { dialogPaidBill } from "./dialog.js";
 
-const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
+const endpoint = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
 
 
 export function showAll(array) {
