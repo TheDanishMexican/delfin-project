@@ -216,7 +216,7 @@ body{
 #grid-container-nav a {
     background-color: aqua;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 
@@ -224,44 +224,90 @@ h1 {
     text-align: center;
 }
 
+/* ------------------------------------------------------- */
+/* Svømmervisning på Coach-side */
+/* ------------------------------------------------------- */
 
-.swimmer-btns-container{
-  margin-top: 0px;
-    grid-column: 2;
-    grid-row: 3;
-}
-
-.swimmer-btns:hover{
-   background-color: darkgray;
-    cursor: pointer;
-}
-.swimmer-btns{
-    width: 100%;
-    border-radius: 10px;
+/* Container til svømmere */
+#elite-swimmers-container {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-   
+    gap: 10px;
+    margin-top: 10px;
+}
+#elite-swimmers-container section{
+     text-align: center;
+
+}
+/* Den enkelte svømmer */
+.elite-swimmer-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 10px;
+    max-width: 800px;
+    height: 100%;
+    background-color: aqua;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
+.elite-swimmer-item:hover{
+box-shadow: 1px 1px 4px grey;
+/* background-color: pink; */
+}
 
-
+/* De tre kolonners tekstparagrafer */
+.elite-swimmer-item ul {
+     background-color: whitesmoke;
+    padding: 2px;
+    width: 98%;
+    border-radius: 10px;
+}
+.elite-swimmer-item p {
+     background-color: whitesmoke;
+    padding: 2px;
+    width: 98%;
+    border-radius: 10px;
+}
+/* visning af generel info */
 .swimmer-info {
-    /* background-color: aquamarine; */
+
     width: 170px;
     border-radius: 10px;
     margin-bottom: 10px;
+    margin-left: 5%;
 }
-
+/* visning af svømmediscipliner */
 .swimmer-discipline{
-     /* background-color: aquamarine; */
+
     width: 170px;
     border-radius: 10px;
+}
+/* visning af resultater fra konkurrencer */
+.swimmer-comp-results{
+    width: 170px;
+    border-radius: 10px;
+}
+/* Knapper inde i hvert svømmerelement */
+
+
+.swimmer-btns-container{
+    grid-row: 2;
+    grid-column: 2;
+    place-items: center;
+
+}
+.swimmer-btns{
+    width: 50%;
+    border-radius: 10px;
+    margin: 2%;
+
 }
 
-.swimmer-comp-results{
-      /* background-color: aquamarine; */
-    width: 170px;
-    border-radius: 10px;
-}
+
+/* ------------------------------------------------------- */
+
+
 
 #grid-container-nav-menu-coach {
     text-align: center;
@@ -297,38 +343,7 @@ h1 {
 }
 
 
-#elite-swimmers-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 10px;
-}
 
-.elite-swimmer-item{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-bottom: 10px;
-    max-width: 800px;
-    background-color: aqua;
-    margin-left: 10px;
-    border: 1px solid black;
-}
-
-.swimmer-btns{
-    margin-top: 50px;
-    grid-column: 2;
-    grid-row: 3;
-}
-
-.add-result-button{
-    border-radius: 10px;
-    background-color: aquamarine;
-}
-
-.edit-result-button{
-    border-radius: 10px;
-    background-color: aquamarine;
-}
 
 .amount-owned-red {
 background-color: red;
@@ -337,6 +352,10 @@ background-color: red;
 .amount-owned-green {
 background-color: greenyellow;
 }
+
+/* ------------------------------------------------------- */
+/* Medlemsinfo på ADMIN-side */
+/* ------------------------------------------------------- */
 
 #member-object-container section{
      margin: auto;
@@ -348,21 +367,17 @@ background-color: greenyellow;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 10px;
+    margin-left: 10px;
     max-width: 800px;
     background-color: aqua;
-    margin-left: 10px;
     border: 1px solid black;
-}
-
-
-
-#member-object-container{
-    max-width: 800px;
+    border-radius: 10px;
 }
 
 .member-object div {
     border: solid 1px black;
     padding: 5px;
+    border-radius: 10px;
 }
 
 .member-object div p{
@@ -373,20 +388,22 @@ background-color: greenyellow;
 }
 
 .member-object:hover{
-    background-color: darkgray;
+    box-shadow: 1px 1px 4px gray;
     cursor: pointer;
 }
 
+
 .object-btns{
- display: grid;
- grid-row: 1fr 1fr;
+ /* display: grid;
+ grid-row: 1fr 1fr; */
  place-items: center;
 }
 
 .object-btns button{
     border-radius: 10px;
     width:50%;
-    height: 75%;
+    height: 40%;
+    margin: 7%;
 }
 
 .object-btns button:hover{
