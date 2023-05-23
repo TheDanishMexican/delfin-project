@@ -216,30 +216,40 @@ h1 {
 }
 
 
+.swimmer-btns-container{
+  margin-top: 0px;
+    grid-column: 2;
+    grid-row: 3;
+}
 
-
+.swimmer-btns:hover{
+   background-color: darkgray;
+    cursor: pointer;
+}
 .swimmer-btns{
-    display: grid;
+    width: 100%;
+    border-radius: 10px;
     grid-template-columns: 1fr 1fr;
+   
 }
 
 
 
 .swimmer-info {
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     width: 170px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
 .swimmer-discipline{
-     background-color: aquamarine;
+     /* background-color: aquamarine; */
     width: 170px;
     border-radius: 10px;
 }
 
 .swimmer-comp-results{
-      background-color: aquamarine;
+      /* background-color: aquamarine; */
     width: 170px;
     border-radius: 10px;
 }
@@ -286,12 +296,13 @@ h1 {
 }
 
 .elite-swimmer-item{
-    border: solid black;
-    padding: 10px;
-    border-radius: 10px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 10px;
+    max-width: 800px;
+    background-color: aqua;
+    margin-left: 10px;
+    border: 1px solid black;
 }
 
 .swimmer-btns{
@@ -384,7 +395,7 @@ background-color: greenyellow;
 
 #body-grid-container{
     display: grid;
-    grid-template-columns: 72fr 1fr 48fr;
+    grid-template-columns: 72fr 3fr 48fr;
 }
 
 dt{
@@ -398,7 +409,8 @@ dt{
     grid-column: 3;
     padding-left: 5px;
     padding-right: 5px;
-    border: 1px solid black;
+    border: 1.5px solid black;
+    height: fit-content;
 }
 
 #faq h3{

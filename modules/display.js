@@ -1,4 +1,4 @@
-import { closeDialog, showAddResultDialog } from "./dialog.js";
+import { closeDialog, showAddResultDialog, showEditResultDialog } from "./dialog.js";
 import { getData, prepareData } from "/main.js";
 import { showEditMemberDialog } from "/modules/dialog.js";
 import { dialogPaidBill } from "./dialog.js";
@@ -110,12 +110,12 @@ export function showSwimmer(obj) {
                 .join('') : 'Har ikke deltaget i konkurrencer endnu'}
         </ul>
         </div>
-        <div class="swimmer-btns">
+        <div class="swimmer-btns-container">
         <div>
-          <button class="add-result-button">Ændr resultat</button>
+          <button id="edit-result-button" class="swimmer-btns">Ændr resultat</button>
         </div>
         <div>
-          <button class="edit-result-button">Tilføj resultat</button>
+          <button id="add-result-button" class="swimmer-btns">Tilføj resultat</button>
         </div>
         </div>
     </div> 
@@ -125,9 +125,10 @@ export function showSwimmer(obj) {
       document.querySelector("#elite-swimmers-container")
         .insertAdjacentHTML("beforeend", html);
 
-      document.querySelector("#elite-swimmers-container section:last-child .add-result-button")
+      document.querySelector("#elite-swimmers-container section:last-child #add-result-button")
       .addEventListener("click", () => showAddResultDialog(obj));
-
+      document.querySelector("#elite-swimmers-container section:last-child #edit-result-button")
+      .addEventListener("click", () => showEditResultDialog(obj));
       
 
     };

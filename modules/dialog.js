@@ -70,6 +70,9 @@ export function showAddResultDialog(obj) {
     .addEventListener("submit", submitResultDisciplineClicked);
 
 }
+export function showEditResultDialog(obj){
+  console.log("Slik på mig, så jeg kan svømme hurtigere");
+}
 
 export function closeResultDialog() {
     const dialog = document.querySelector("#dialog-add-swim-results");
