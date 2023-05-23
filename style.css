@@ -38,6 +38,11 @@
     width: 100px;
 }
 
+#admin-img{
+    background-color: lightcyan;
+    border-radius: 100px;
+}
+
 #nav-links{
     flex:1;
     text-align: right;
@@ -463,6 +468,8 @@ dt{
 
 #delfin-img{
     grid-column: 3;
+    background-color:  lightcyan;
+    border-radius: 100px;
 }
 
 #delfin-img img{
