@@ -532,3 +532,7 @@ dt{
    padding-bottom: 20px;
 }
 
+#cashier-members-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
