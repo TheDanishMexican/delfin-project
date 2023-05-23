@@ -1,7 +1,7 @@
 import { SubmitMemberPaidBill } from "./submit.js";
 import { submitResultDisciplineClicked } from "./submit.js";
 import { updateMemberClicked } from "./updateMember.js";
-import { CreateSubmitClicked } from "/modules/submit.js";
+import { CreateSubmitClicked } from "./modules/submit.js";
 
 export function showNewMemberDialog() {
     const dialog = document.querySelector("#create-new-member-dialog");

@@ -1,6 +1,6 @@
 import { closeDialog, showAddResultDialog } from "./dialog.js";
-import { getData, prepareData } from "/main.js";
-import { showEditMemberDialog } from "/modules/dialog.js";
+import { getData, prepareData } from "../main.js";
+import { showEditMemberDialog } from "./modules/dialog.js";
 import { dialogPaidBill } from "./dialog.js";
 import { calculateTotalAmountOwed, totalIncome } from "../main.js";
 import { filterByMembershipStatus, filterByPaymentStatus } from "./filter.js";
