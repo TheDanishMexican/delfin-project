@@ -32,13 +32,18 @@ export function showAll(array) {
 }
 
 export function showOne(obj) {
+    const dateOfBirth = new Date(obj.age);
+    const todayDate = new Date();
+
+    const calculatedAge = todayDate.getFullYear() - dateOfBirth.getFullYear();
+
   const html = /*html*/ `
   <section>
     <div class="member-object">
       <div class="personal-information">
         <p>${obj.name}</p>
         <br>
-        <p>${obj.age} år</p>
+        <p>${calculatedAge} år</p>
       </div>
       <div class="swim-information">
        <p><strong>Adresse:</strong> <br> ${obj.address}</p> 
