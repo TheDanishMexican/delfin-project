@@ -14,13 +14,11 @@ export function showNewMemberDialog() {
 
 
 export function showEditMemberDialog(obj){
-const dateOfBirth = new Date(obj.age);
-  console.log(dateOfBirth);
 const form = document.querySelector("#edit-member-form")
 form.setAttribute("data-id", obj.id)
 
 form.name.value=obj.name,
-form.age.value=dateOfBirth,
+form.age.value= obj.age
 form.address.value=obj.address,
 form.phone.value=obj.phoneNumber,
 form.email.value=obj.email,
