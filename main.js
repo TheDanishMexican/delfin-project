@@ -8,10 +8,6 @@ import { CloseTop5JuniorDialog, showTop5JuniorDialog, updateTotalIncome } from "
 import {deleteMemberClicked} from "./modules/submit.js";
 import { closeDeleteDialog} from"./modules/display.js"
 import { closePaidDialog } from "./modules/display.js";
-import { updateMemberClicked } from "./modules/updateMember.js";
-
-import { filterByMembershipStatus } from "./modules/filter.js";
-
 
 window.addEventListener("load", start);
 
