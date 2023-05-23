@@ -4,31 +4,39 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cashier page</title>
+<title>Kasserer side</title>
 </head>
 <link rel="stylesheet" href="style.css">
 <header id="cashier-header">
-<nav id="cashier-nav">
-<div id="grid-container-cashier">
-<div class="h1-container">
-<h1>Kasserer side</h1>
+      <div id="payment-select">
+          <label for="payment-status" id="payment-status-label">Filtrer visning på <br> betalings status</label>
+              <br><select name="payment-status" id="payment-status-select" class="close-select">
+                      <option value="">Alle</option selected>
+                      <option value="betalt">Har betalt</option>
+                      <option value="skylder">Skylder</option>
+                  </select>
+      </div>
+      <div class="h1-container">
+        <h1>Kasserer</h1>
+      </div>
+      <div id="members-container-cashier">
+      <a href="admin.html">Administration</a>
+      </div>
+      <div id="totals">
+<div id="sum-of-income-container">Indkomst i alt:
+<span id="total-income"></span>
 </div>
-        <div id="payment-select">
-            <label for="payment-status" id="payment-status-label">Filtrer visning på <br> betalings status</label>
-                <br><select name="payment-status" id="payment-status-select" class="close-select">
-                        <option value="">Alle</option selected>
-                        <option value="betalt">Har betalt</option>
-                        <option value="skylder">Skylder</option>
-                    </select>
-        </div>
+
+  <div id="real-income-container">Reel indkomst: 
+    <span id="real-income"></span>
+  </div>
 </div>
-<div id="grid-container-nav-menu-cashier">
-<div id="members-container-cashier">
-<a href="/admin.html">Members page</a>
-</div>
-</div>
-</nav>
+<div id="delfin-img">
+<img src="images/image.png" alt="">
 </header>
+</div>
+
+
 <body>
 <div id="cashier-members-container"></div>
 <dialog id="paid-dialog">
@@ -39,19 +47,6 @@
 </form>
 </dialog>
 
-<div id="sum-of-income-container">Indkomst i alt:
-<span id="total-income"></span>
-</div>
-
-<div id="real-income-container">
-    Reel indkomst: <span id="real-income"></span>
-  </div>
-
 <script type="module" src="main.js"></script>
-<script type="module" src="modules/dialog.js"></script>
-<script type="module" src="modules/display.js"></script>
-<script type="module" src="modules/filter.js"></script>
-<script type="module" src="modules/submit.js"></script>
-
 </body>
 </html>

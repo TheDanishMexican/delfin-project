@@ -1,6 +1,6 @@
-import { createMember } from "/main.js";
-import { updateSwimResults } from "/main.js";
-import {deleteMember} from "/main.js";
+import { createMember } from "../main.js";
+import { updateSwimResults } from "../main.js";
+import {deleteMember} from "../main.js";
 import { memberPayed } from "../main.js";
 import { closePaidDialog } from "./display.js";
 

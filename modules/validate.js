@@ -5,7 +5,7 @@ export function validatePassword(event) {
     const password = "kode123"
     
     if (form.username.value === username && form.password.value === password) {
-        window.location.href = "/admin.html"
+        window.location.href = "./admin.html"
         form.reset();
     } else   {
         console.log("Incorrect password = password is kode123");

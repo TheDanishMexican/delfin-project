@@ -1,3 +1,7 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
 #admin-header{
     min-height: 10vh;
     width: 100%;
@@ -32,6 +36,11 @@
 
 #grid-container-nav-menu img{
     width: 100px;
+}
+
+#admin-img{
+    background-color: lightcyan;
+    border-radius: 100px;
 }
 
 #nav-links{
@@ -321,10 +330,6 @@ h1 {
     background-color: aquamarine;
 }
 
-.cashier-members-item{
-border: solid black;
-}
-
 .amount-owned-red {
 background-color: red;
 }
@@ -458,5 +463,95 @@ dt{
     margin-left: 50%;
 }
 
+#cashier-members-container section{
+    margin-bottom: 10px;
+    max-width: 800px;
+    margin-left: 10px;
+    border: 2px solid black;
+    max-width: 500px;
+}
+
+#cashier-header{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+}
+
+#delfin-img{
+    grid-column: 3;
+    background-color:  lightcyan;
+    border-radius: 100px;
+}
+
+#delfin-img img{
+    width: 100px;
+}
+
+#payment-select{
+    width: 50%;
+    margin: auto;
+    grid-row: 2;
+    grid-column: 1;
+}
+
+#members-container-cashier::after{
+    content:"";
+    width:0%;
+    height: 2px;
+    background-color:black;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+#members-container-cashier:hover::after{
+    width: 100%;
+}
+
+#members-container-cashier a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+
+#cashier-header{
+    background-color: aqua;
+    margin-bottom: 50px;
+}
+
+.cashier-members-item{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#totals{
+    font-size: 12px;
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.bttn button{
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.bttn button:hover{
+    cursor: pointer;
+    background-color: darkgray;
+}
 
 
+.cashier-members-item div{
+    margin: auto;
+}
+
+.personal-information{
+   padding-bottom: 20px;
+}
+
+#cashier-members-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

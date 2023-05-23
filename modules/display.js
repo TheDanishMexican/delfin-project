@@ -1,6 +1,6 @@
 import { closeDialog, showAddResultDialog, showEditResultDialog } from "./dialog.js";
-import { getData, prepareData } from "/main.js";
-import { showEditMemberDialog } from "/modules/dialog.js";
+import { getData, prepareData } from "../main.js";
+import { showEditMemberDialog } from "./dialog.js";
 import { dialogPaidBill } from "./dialog.js";
 import { calculateTotalAmountOwed, totalIncome } from "../main.js";
 import { filterByMembershipStatus, filterByPaymentStatus } from "./filter.js";
@@ -183,11 +183,13 @@ const html = /*html*/`
 <div class="cashier-members-item" id="member-${obj.id}">
 <div class="personal-information">
 <p>${obj.name}</p>
-<p>Alder: ${obj.age} år</p>
+<p>${obj.age} år</p>
 <br>
 </div>
-<div class="swim-information">
+<div class="cashier-information">
 <p>Skyldigt beløb: ${obj.amountOwed} kr</p>
+</div>
+<div class="bttn">
 <button class="pay-btn">Betalt</button>
 </div>
 </div>
