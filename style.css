@@ -448,7 +448,7 @@ dt{
     margin-bottom: 10px;
     max-width: 800px;
     margin-left: 10px;
-    border: 1px solid black;
+    border: 2px solid black;
     max-width: 500px;
 }
 
@@ -458,3 +458,46 @@ dt{
     grid-template-rows: 1fr 1fr;
     place-items: center;
 }
+
+#delfin-img{
+    grid-column: 3;
+}
+
+#delfin-img img{
+    width: 100px;
+}
+
+#payment-select{
+    width: 50%;
+    margin: auto;
+}
+
+#members-container-cashier::after{
+    content:"";
+    width:0%;
+    height: 2px;
+    background-color:black;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+#members-container-cashier:hover::after{
+    width: 100%;
+}
+
+#members-container-cashier a{
+    text-decoration: none;
+    color: black;
+}
+
+#cashier-header{
+    background-color: aqua;
+    margin-bottom: 50px;
+}
+
+#cashier-members-container section{
+    display: grid;
+    grid-column: 1fr 1fr 1fr;
+}
+
