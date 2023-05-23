@@ -19,6 +19,10 @@
     margin-bottom: 40px;
 }
 
+.displaynone{
+    display: none;
+}
+
 #new-member-button{
     background: lightgrey;
 	color:black;

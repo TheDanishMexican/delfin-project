@@ -178,6 +178,8 @@ document.querySelector("#delete-dialog").close();
 
 export function showCashier(obj) {
 
+
+
 const html = /*html*/`
 <section>
 <div class="cashier-members-item" id="member-${obj.id}">
@@ -190,11 +192,12 @@ const html = /*html*/`
 <p>Skyldigt beløb: ${obj.amountOwed} kr</p>
 </div>
 <div class="bttn">
-<button class="pay-btn">Betalt</button>
+<button class="pay-btn">Fjern restance</button>
 </div>
 </div>
 </section>
 `;
+
 
 if (document.querySelector("#cashier-members-container")) {
     document.querySelector("#cashier-members-container").insertAdjacentHTML("beforeend", html);
@@ -207,10 +210,13 @@ if (document.querySelector("#cashier-members-container")) {
   }
 
 function setBackgroundColor(obj) {
+
 if (obj.amountOwed > 0) {
 document.querySelector("#cashier-members-container section:last-child").classList.add("amount-owned-red");
 } else {
 document.querySelector("#cashier-members-container section:last-child").classList.add("amount-owned-green");
+document.querySelector("#cashier-members-container section:last-child .pay-btn")
+.classList.add("displaynone")
 }
 }
 
