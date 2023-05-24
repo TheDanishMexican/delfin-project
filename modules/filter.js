@@ -59,6 +59,7 @@ export function filterByPaymentStatus(array, event) {
 }
 
 export function filterSwimmerType(array, event) {
+    
     document.querySelector("#swimmer-select-sort").value = "alle";
     const value = event.target.value;
     
