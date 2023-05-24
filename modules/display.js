@@ -100,6 +100,14 @@ export function showSwimmer(obj) {
             ${obj.discipline ? obj.discipline.
                 map(discipline => `<li>${discipline}</li>`).join('') : 'Ingen'}
         </ul>
+        <div class="swimmer-btns-container">
+        <div>
+          <button id="edit-result-button" class="swimmer-btns">Ændr resultat</button>
+        </div>
+        <div>
+          <button id="add-result-button" class="swimmer-btns">Tilføj resultat</button>
+        </div>
+        </div>
         </div>
         <div class="swimmer-comp-results">
         <p>Konkurrence-<br>
@@ -111,14 +119,7 @@ export function showSwimmer(obj) {
                 .join('') : 'Har ikke deltaget i konkurrencer endnu'}
         </ul>
         </div>
-        <div class="swimmer-btns-container">
-        <div>
-          <button id="edit-result-button" class="swimmer-btns">Ændr resultat</button>
-        </div>
-        <div>
-          <button id="add-result-button" class="swimmer-btns">Tilføj resultat</button>
-        </div>
-        </div>
+        
     </div> 
     </section>   
     `
