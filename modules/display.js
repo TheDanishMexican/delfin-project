@@ -4,6 +4,7 @@ import { showEditMemberDialog } from "./dialog.js";
 import { dialogPaidBill } from "./dialog.js";
 import { calculateTotalAmountOwed, totalIncome } from "../main.js";
 import { filterByMembershipStatus, filterByPaymentStatus } from "./filter.js";
+import { sortSwimmers } from "./sort.js";
 
 
 const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -124,6 +125,9 @@ export function showSwimmer(obj) {
     if(document.querySelector("#elite-swimmers-container")) {
       document.querySelector("#elite-swimmers-container")
         .insertAdjacentHTML("beforeend", html);
+      
+      document.querySelector("#swimmer-select-sort").addEventListener("change",
+      () => sortSwimmers(obj));
 
       document.querySelector("#elite-swimmers-container section:last-child #add-result-button")
       .addEventListener("click", () => showAddResultDialog(obj));
