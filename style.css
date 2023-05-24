@@ -522,6 +522,7 @@ dt{
 #cashier-header{
     background-color: aqua;
     margin-bottom: 50px;
+    padding-bottom: 10px;
 }
 
 .cashier-members-item{

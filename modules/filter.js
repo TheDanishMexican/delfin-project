@@ -37,7 +37,7 @@ export function filterByPaymentStatus(array, event) {
     if(event.target.value === "betalt") {
 
         const filteredHasPaid = array
-        .filter(swimmer => swimmer.amountOwed === 0 )
+        .filter(swimmer => swimmer.amountOwed <= 0 )
 
         for (const swimmer of filteredHasPaid) {
             showCashier(swimmer);
