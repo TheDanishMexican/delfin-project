@@ -377,7 +377,7 @@ background-color: greenyellow;
 }
 
 .member-object:hover{
-    background-color: darkgray;
+    background-color: gray;
     cursor: pointer;
 }
 
@@ -593,4 +593,8 @@ margin-top: 0;
 #create-new-member-form, #edit-member-form{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+button:hover{
+    cursor: pointer;
 }
