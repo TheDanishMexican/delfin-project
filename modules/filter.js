@@ -37,7 +37,7 @@ export function filterByPaymentStatus(array, event) {
     if(event.target.value === "betalt") {
 
         const filteredHasPaid = array
-        .filter(swimmer => swimmer.amountOwed === 0 )
+        .filter(swimmer => swimmer.amountOwed <= 0 )
 
         for (const swimmer of filteredHasPaid) {
             showCashier(swimmer);
@@ -56,5 +56,19 @@ export function filterByPaymentStatus(array, event) {
         for (const swimmer of array) {
             showCashier(swimmer);
     } }   
+}
+
+export function filterSwimmerType(array, event) {
+    
+    document.querySelector("#swimmer-select-sort").value = "alle";
+    const value = event.target.value;
+    
+    if(value === "junior") {
+        const filterJunior = array.filter(swimmer => swimmer.swimmerType === "junior");
+        return filterJunior;
+    } else if (value === "senior") {
+        const filterSenior = array.filter(swimmer => swimmer.swimmerType === "senior");
+        return filterSenior;
+    } else return array;
 }
 

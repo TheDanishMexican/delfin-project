@@ -11,25 +11,35 @@
     <nav id="coach-nav">
         <div id="grid-container-coach">
             <div class="h1-container">
-                <h1>Trænersiden</h1>
+                <h1>Træner</h1>
             </div>
         </div>
         <div id="grid-container-nav-menu-coach">
             <div id="members-container-coach">
-                    <a href="admin.html">Administrator siden</a>
+                    <a href="admin.html">Administrator</a>
             </div> 
        </div>
     </nav>
+    <div id="div-swimmer-select-filter">
+    <label for="swimmer-select-filter">Filtrer efter:</label>
+        <select name="" id="swimmer-select-filter">
+            <option value="alle">Alle</option>
+            <option value="junior">Junior</option>
+            <option value="senior">Senior</option>
+        </select>
+    </div>
+    <br>
+    <div id="div-swimmer-select-sort">
+        <label for="swimmer-select-sort">Sorter efter:</label>
+        <select name="" id="swimmer-select-sort">
+            <option value="alle">Alle</option>
+            <option value="tid">Tid</option>
+            <option value="navn">Navn</option>
+        </select>
+    </div>
 </header>
 <br>
 <body>
-    <div id="top5-grid-container">
-        <div id="top-five-button">
-        <button>Vis top 5 seniorer</button>
-    </div>
-    <div id="top-five-junior-button">
-        <button>Vis top 5 junior</button>
-    </div>
     </div>
     <div id="elite-swimmers-container"></div>
 

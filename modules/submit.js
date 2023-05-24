@@ -66,6 +66,8 @@ obj.owesMoney = false;
 
 const id = obj.id;
 
+document.querySelector("#payment-status-select").value = "Alle";
+
 memberPayed(obj, id);
 
 closePaidDialog(id);

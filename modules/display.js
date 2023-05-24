@@ -3,7 +3,8 @@ import { getData, prepareData } from "../main.js";
 import { showEditMemberDialog } from "./dialog.js";
 import { dialogPaidBill } from "./dialog.js";
 import { calculateTotalAmountOwed, totalIncome } from "../main.js";
-import { filterByMembershipStatus, filterByPaymentStatus } from "./filter.js";
+import { filterByMembershipStatus, filterByPaymentStatus, filterSwimmerType } from "./filter.js";
+import { sortSwimmers } from "./sort.js";
 
 
 const endpoints = "https://database-4c47b-default-rtdb.europe-west1.firebasedatabase.app/"
@@ -80,9 +81,39 @@ export async function showFilteredSwimmers() {
       if (document.querySelector("#elite-swimmers-container")){
     document.querySelector("#elite-swimmers-container").innerHTML="";
   }
+
     for (const swimmer of array) {
         showSwimmer(swimmer);
     };
+
+        document.querySelector("#swimmer-select-sort").addEventListener("change",
+      () => showSortedSwimmers(array, event));
+        document.querySelector("#swimmer-select-filter").addEventListener("change",
+      () => showSwimmersFilteredByType(array, event));
+}
+
+export async function showSwimmersFilteredByType(array, event){
+   if (document.querySelector("#elite-swimmers-container")){
+    document.querySelector("#elite-swimmers-container").innerHTML="";
+  }
+  const filteredArray = filterSwimmerType(array, event);
+
+    for (const swimmer of filteredArray) {
+      showSwimmer(swimmer);
+    }
+
+}
+
+
+export async function showSortedSwimmers(array, event){
+        if (document.querySelector("#elite-swimmers-container")){
+    document.querySelector("#elite-swimmers-container").innerHTML="";
+  }
+  const sortedArray = sortSwimmers(array, event);
+
+  for (const swimmer of sortedArray) {
+    showSwimmer(swimmer);
+  }
 }
 
 export function showSwimmer(obj) {
@@ -92,7 +123,6 @@ export function showSwimmer(obj) {
     <div class="swimmer-info">
         <p>${obj.name}</p>
         <p>Svømmertype: ${obj.swimmerType}</p>
-        <p>Medlemskabstype: ${obj.membershipType}</p>
         </div>
         <div class="swimmer-discipline">
         <p>Discipliner:</p>
@@ -180,6 +210,8 @@ document.querySelector("#delete-dialog").close();
 
 export function showCashier(obj) {
 
+
+
 const html = /*html*/`
 <section>
 <div class="cashier-members-item" id="member-${obj.id}">
@@ -189,14 +221,15 @@ const html = /*html*/`
 <br>
 </div>
 <div class="cashier-information">
-<p>Skyldigt beløb: ${obj.amountOwed} kr</p>
+<p>Restance beløb: ${obj.amountOwed} kr</p>
 </div>
 <div class="bttn">
-<button class="pay-btn">Betalt</button>
+<button class="pay-btn">Fjern restance</button>
 </div>
 </div>
 </section>
 `;
+
 
 if (document.querySelector("#cashier-members-container")) {
     document.querySelector("#cashier-members-container").insertAdjacentHTML("beforeend", html);
@@ -209,10 +242,13 @@ if (document.querySelector("#cashier-members-container")) {
   }
 
 function setBackgroundColor(obj) {
+
 if (obj.amountOwed > 0) {
 document.querySelector("#cashier-members-container section:last-child").classList.add("amount-owned-red");
 } else {
 document.querySelector("#cashier-members-container section:last-child").classList.add("amount-owned-green");
+document.querySelector("#cashier-members-container section:last-child .pay-btn")
+.classList.add("displaynone")
 }
 }
 

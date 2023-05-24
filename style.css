@@ -29,6 +29,10 @@
     margin-bottom: 40px;
 }
 
+.displaynone{
+    display: none;
+}
+
 #new-member-button{
     background: lightgrey;
 	color:black;
@@ -640,6 +644,7 @@ dt{
 #cashier-header{
     background-color: aqua;
     margin-bottom: 50px;
+    padding-bottom: 10px;
 }
 
 .cashier-members-item{
@@ -676,4 +681,42 @@ dt{
 #cashier-members-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+fieldset{
+    margin: 2em 0;
+    padding: 1em 2em;
+    border: solid 1px #CCC;
+    border-radius: 6px;
+    min-width: 200px;
+}
+
+legend{
+    font-size: 1.25em;
+    padding: 0 .25em;
+    color: #999;
+}
+
+dialog {
+    border-radius: 15px;
+    border: solid 1px #CCC;
+    background-color: whitesmoke
+}
+
+label {
+    display: block;
+    margin-top: 1em;
+}
+
+label:first-of-type {
+margin-top: 0;
+}
+
+#create-new-member-form, #edit-member-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+button:hover{
+    cursor: pointer;
 }
