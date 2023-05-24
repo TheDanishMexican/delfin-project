@@ -81,9 +81,24 @@ export async function showFilteredSwimmers() {
       if (document.querySelector("#elite-swimmers-container")){
     document.querySelector("#elite-swimmers-container").innerHTML="";
   }
+
     for (const swimmer of array) {
         showSwimmer(swimmer);
     };
+
+        document.querySelector("#swimmer-select-sort").addEventListener("change",
+      () => showSortedSwimmers(array, event));
+}
+
+export async function showSortedSwimmers(array, event){
+        if (document.querySelector("#elite-swimmers-container")){
+    document.querySelector("#elite-swimmers-container").innerHTML="";
+  }
+  const sortedArray = sortSwimmers(array, event);
+
+  for (const swimmer of sortedArray) {
+    showSwimmer(swimmer);
+  }
 }
 
 export function showSwimmer(obj) {
@@ -125,9 +140,6 @@ export function showSwimmer(obj) {
     if(document.querySelector("#elite-swimmers-container")) {
       document.querySelector("#elite-swimmers-container")
         .insertAdjacentHTML("beforeend", html);
-      
-      document.querySelector("#swimmer-select-sort").addEventListener("change",
-      () => sortSwimmers(obj));
 
       document.querySelector("#elite-swimmers-container section:last-child #add-result-button")
       .addEventListener("click", () => showAddResultDialog(obj));
