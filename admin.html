@@ -170,11 +170,13 @@
     </dialog>
 
     <dialog open id="edit-member-dialog" class="dialogs">
-        <p>Redigér oplysninger</p>
-         <button type="button" id="close-edit-member-btn" class="exit-btn-class">X</button>
+                <button type="button" id="close-edit-member-btn" class="exit-btn-class">X</button>
         <br>
         <br>
+        <fieldset>
+         <legend>Rediger medlem</legend>   
         <form action="" id="edit-member-form" class="forms">
+            <div>
         <label for="name">Fulde Navn:</label>
         <input type="text" id="name" name="name" required><br>
 
@@ -189,7 +191,8 @@
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br>
-
+                </div>
+                <div>
         <label for="swimmer-type">Svømmertype:</label>
         <select id="swimmerType" name="swimmer-type" required>
             <option value="">--Vælg venligst--</option>
@@ -203,7 +206,8 @@
             <option value="active">Aktiv</option>
             <option value="inactive">Inaktiv</option>
         </select><br>
-
+        
+       
         <label for="amount-owed">Skyldig Beløb:</label>
         <input type="number" id="amountOwed" name="amount-owed" required><br>
 
@@ -222,8 +226,12 @@
         <input type="checkbox" name="disciplines[]" value="rygsvømning">Rygsvømning<br> -->
 
         <br>
+        <br>
+        </div>
+        <br>
         <button id="edit-member-form-submit-button">Indsend ændringer</button>  
         </form>
+        </fieldset>
 
     </dialog>
 <dialog id="delete-dialog">
