@@ -198,7 +198,6 @@ owesMoney: obj.owesMoney,
 body: stringified,
 })
  if (response.ok) {
-console.log("Member paid");
 updateMembersGrid();
  } else (console.log("Member did not pay"));
 }
@@ -240,7 +239,6 @@ export function calculateTotalAmountOwed(memberArray) {
   let totalAmountOwed = 0;
 
   for (const member of memberArray) {
-     console.log("Amount owed:", member.amountOwed);
     totalAmountOwed += parseFloat(member.amountOwed);
     // parseFloat konvertere strenge til numeriske værdier
   }
