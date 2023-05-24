@@ -108,9 +108,11 @@
     </div>
     <dialog id="create-new-member-dialog" class="dialogs">
         <button type="button" id="close-new-member-btn" class="">X</button>
-        <br>
-        <br>
+        <br><br>
+        <fieldset>
+        <legend>Opret et nyt medlem</legend>
         <form action="" id="create-new-member-form" class="forms">
+            <div>
         <label for="name">Fulde Navn:</label>
         <input type="text" id="name" name="name" required><br>
 
@@ -125,7 +127,8 @@
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br>
-
+                </div>
+                <div>
         <label for="swimmer-type">Svømmertype:</label>
         <select id="swimmer-type" name="swimmer-type" required>
             <option value="">--Vælg venligst--</option>
@@ -146,7 +149,7 @@
         <label for="owes-money">Skylder Penge:</label>
         <input type="checkbox" id="owes-money" name="owes-money"><br>
 
-        <p>Udfyld kun nedenstående hvis medlem <br> er konkurrencesvømmer.</p>
+        <p><strong> Udfyld nedenstående hvis medlemmet <br> er konkurrencesvømmer.</strong></p>
 
         <label for="competition-swimmer">Konkurrencesvømmer:</label>
         <input type="checkbox" id="competition-swimmer" name="competition-swimmer"><br>
@@ -157,12 +160,16 @@
         <input type="checkbox" name="disciplines[]" value="brystsvømning">Brystsvømning<br>
         <input type="checkbox" name="disciplines[]" value="rygsvømning">Rygsvømning<br>
 
+        <br><br>
+        </div>
+        <br>
         <br>
         <button id="new-member-form-submit-button">Opret</button>  
         </form>
+        </fieldset>
     </dialog>
 
-    <dialog id="edit-member-dialog" class="dialogs">
+    <dialog open id="edit-member-dialog" class="dialogs">
         <p>Redigér oplysninger</p>
          <button type="button" id="close-edit-member-btn" class="exit-btn-class">X</button>
         <br>
