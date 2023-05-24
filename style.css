@@ -16,6 +16,8 @@
     background-position: center;
     background-size: cover;
     position: relative;
+    background-color: var(--headers);
+    
 }
 
 #grid-container-nav-menu{
@@ -286,7 +288,7 @@ box-shadow: 3px 3px 8px pink;
 
 /* De tre kolonners tekstparagrafer og unordered list */
 .elite-swimmer-item p {
-    background-color: var(--headers);
+    background-color: whitesmoke;
     padding: 0px;
     max-width: 90%;
     border-radius: 10px;
@@ -319,9 +321,7 @@ box-shadow: 3px 3px 8px pink;
     justify-content: space-between;
     margin-top: 30px;
 }
-.swimmer-info p{
 
-}
 /* visning af svømmediscipliner */
 .swimmer-discipline{
     align-items: stretch;    
@@ -350,18 +350,16 @@ box-shadow: 3px 3px 8px pink;
   
   background-clip: padding-box;
   background-color: var(--edit-buttons);
-  border: 1px solid transparent;
+  border: 1px solid black;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  display: flex;
   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 400;
   justify-content:flex-end;
   line-height: 1.25;
-  /* margin: 0; */
   min-height: 3rem;
   padding: calc(.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
@@ -370,8 +368,6 @@ box-shadow: 3px 3px 8px pink;
   vertical-align: baseline;
   width: auto;
 }
-
-.button-5:hover,
 .swimmer-btns:focus {
   background-color: #fb8332;
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
@@ -452,7 +448,7 @@ background-color: greenyellow;
     margin-bottom: 10px;
     margin-left: 10px;
     max-width: 800px;
-    background-color: aqua;
+    background-color: var(--grid-item);
     border: 1px solid black;
     border-radius: 10px;
 }
@@ -472,7 +468,7 @@ background-color: greenyellow;
 }
 
 .member-object:hover{
-    box-shadow: 1px 1px 4px gray;
+   box-shadow: 3px 3px 8px pink;
     cursor: pointer;
 }
 
@@ -488,11 +484,36 @@ background-color: greenyellow;
     width:50%;
     height: 40%;
     margin: 7%;
+    background-clip: padding-box;
+  background-color: var(--edit-buttons);
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  position: relative;
+  transition: all 250ms;
+  touch-action: manipulation;
+  vertical-align: baseline;
+}
+.object-btns:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
-.object-btns button:hover{
-    cursor: pointer;
-    background-color: darkgray;
+.object-btns:hover {
+  transform: translateY(-2px);
+}
+
+.object-btns:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+
 }
 
 .personal-information p{
@@ -510,7 +531,7 @@ dt{
 
 #faq{
     border-radius: 10px;
-    background-color: aqua;
+    background-color: var(--headers);
     margin-right: 15px;
     grid-column: 3;
     padding-left: 5px;
