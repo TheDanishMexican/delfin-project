@@ -60,6 +60,10 @@ export function filterByPaymentStatus(array, event) {
 
 export function filterSwimmerType(array, event) {
     const value = event.target.value;
-    console.log(value);
+    
+    if(value === "junior") {
+        const filterJunior = array.filter(swimmer => swimmer.swimmerType === "junior");
+        return filterJunior;
+    }
 }
 

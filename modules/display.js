@@ -97,6 +97,11 @@ export async function showSwimmersFilteredByType(array, event){
     document.querySelector("#elite-swimmers-container").innerHTML="";
   }
   const filteredArray = filterSwimmerType(array, event);
+
+    for (const swimmer of filteredArray) {
+      showSwimmer(swimmer);
+    }
+
 }
 
 
