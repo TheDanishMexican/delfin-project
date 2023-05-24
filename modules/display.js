@@ -189,7 +189,7 @@ const html = /*html*/`
 <br>
 </div>
 <div class="cashier-information">
-<p>Skyldigt beløb: ${obj.amountOwed} kr</p>
+<p>Restance beløb: ${obj.amountOwed} kr</p>
 </div>
 <div class="bttn">
 <button class="pay-btn">Fjern restance</button>
