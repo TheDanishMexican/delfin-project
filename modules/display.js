@@ -102,7 +102,8 @@ export function showSwimmer(obj) {
         </ul>
         </div>
         <div class="swimmer-comp-results">
-        <p>Konkurrenceresultater:</p>
+        <p>Konkurrence-<br>
+        resultater:</p>
         <ul>
             ${obj.competitionResults ? obj.competitionResults.
                 map(result => `<li>Dato: ${result.date}</li> <li>Disciplin: 

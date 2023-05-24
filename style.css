@@ -258,7 +258,17 @@ box-shadow: 1px 1px 4px grey;
 /* background-color: pink; */
 }
 
+
+
 /* De tre kolonners tekstparagrafer og unordered list */
+.elite-swimmer-item p {
+    background-color: whitesmoke;
+    padding: 0px;
+    max-width: 90%;
+    border-radius: 10px;
+    text-align: center;
+}
+
 .elite-swimmer-item ul {
      background-color: whitesmoke;
     padding: 0;
@@ -270,15 +280,10 @@ box-shadow: 1px 1px 4px grey;
     font-size: smaller;
     font-weight: 110;
 }
-.elite-swimmer-item p {
-     background-color: whitesmoke;
-    padding: 0px;
-    max-width: 90%;
-    border-radius: 10px;
-}
+
 /* visning af generel info */
 .swimmer-info {
-    width: 170px;
+    width: 12em;
     border-radius: 10px;
     margin-bottom: 10px;
     margin-left: 5%;
@@ -292,8 +297,12 @@ text-align: center;
 
 /* visning af resultatboks */
 .swimmer-comp-results{
-    max-width: 95%;
+    width:fit-content;
     border-radius: 10px;
+}
+
+.swimmer-comp-results p{
+    width: 9em;
 }
 /* Knapper inde i hvert svømmerelement */
 
