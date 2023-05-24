@@ -64,6 +64,9 @@ export function filterSwimmerType(array, event) {
     if(value === "junior") {
         const filterJunior = array.filter(swimmer => swimmer.swimmerType === "junior");
         return filterJunior;
+    } else if (value === "senior") {
+        const filterSenior = array.filter(swimmer => swimmer.swimmerType === "senior");
+        return filterSenior;
     }
 }
 
