@@ -5,13 +5,14 @@ export function sortSwimmers(array, event) {
         return sortedByName;
     } else if(value === "alle") {
         return array;
-    } else if(value === "disciplin") {
-        const sortedByDiscipline = 
-            array.toSorted((a,b) => {
-                const disciplinA = a.discipline[0];
-                const disciplineB = b.discipline[0];
-                return disciplinA.localeCompare(disciplineB);
-            });
-            return sortedByDiscipline;
+    } else if (value === "tid") {
+        const sortedByTime =
+        array.toSorted((a,b) => {
+            const resultA = a.competitionResults[0].result;
+            const resultB = b.competitionResults[0].result;
+            return resultA - resultB;
+        });
+        return sortedByTime;
     }
 }
+
