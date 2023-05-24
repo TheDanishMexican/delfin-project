@@ -3,7 +3,7 @@ import { getData, prepareData } from "../main.js";
 import { showEditMemberDialog } from "./dialog.js";
 import { dialogPaidBill } from "./dialog.js";
 import { calculateTotalAmountOwed, totalIncome } from "../main.js";
-import { filterByMembershipStatus, filterByPaymentStatus } from "./filter.js";
+import { filterByMembershipStatus, filterByPaymentStatus, filterSwimmerType } from "./filter.js";
 import { sortSwimmers } from "./sort.js";
 
 
@@ -88,7 +88,17 @@ export async function showFilteredSwimmers() {
 
         document.querySelector("#swimmer-select-sort").addEventListener("change",
       () => showSortedSwimmers(array, event));
+        document.querySelector("#swimmer-select-filter").addEventListener("change",
+      () => showSwimmersFilteredByType(array, event));
 }
+
+export async function showSwimmersFilteredByType(array, event){
+   if (document.querySelector("#elite-swimmers-container")){
+    document.querySelector("#elite-swimmers-container").innerHTML="";
+  }
+  const filteredArray = filterSwimmerType(array, event);
+}
+
 
 export async function showSortedSwimmers(array, event){
         if (document.querySelector("#elite-swimmers-container")){
@@ -108,7 +118,6 @@ export function showSwimmer(obj) {
     <div class="swimmer-info">
         <p>${obj.name}</p>
         <p>Svømmertype: ${obj.swimmerType}</p>
-        <p>Medlemskabstype: ${obj.membershipType}</p>
         </div>
         <div class="swimmer-discipline">
         <p>Discipliner:</p>

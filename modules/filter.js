@@ -58,3 +58,8 @@ export function filterByPaymentStatus(array, event) {
     } }   
 }
 
+export function filterSwimmerType(array, event) {
+    const value = event.target.value;
+    console.log(value);
+}
+
