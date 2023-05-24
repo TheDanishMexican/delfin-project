@@ -59,6 +59,7 @@ export function filterByPaymentStatus(array, event) {
 }
 
 export function filterSwimmerType(array, event) {
+    document.querySelector("#swimmer-select-sort").value = "alle";
     const value = event.target.value;
     
     if(value === "junior") {
@@ -67,6 +68,6 @@ export function filterSwimmerType(array, event) {
     } else if (value === "senior") {
         const filterSenior = array.filter(swimmer => swimmer.swimmerType === "senior");
         return filterSenior;
-    }
+    } else return array;
 }
 

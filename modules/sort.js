@@ -1,4 +1,5 @@
 export function sortSwimmers(array, event) {
+    document.querySelector("#swimmer-select-filter").value = "alle";
     const value = event.target.value;
     if(value === "navn") {
         const sortedByName = array.toSorted((a,b) => a.name.localeCompare(b.name));
