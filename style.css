@@ -670,7 +670,6 @@ dt{
 
 .bttn button:hover{
     cursor: pointer;
-    background-color: darkgray;
 }
 
 
@@ -793,4 +792,13 @@ button:hover{
 
 #members-container-coach a:hover::after{
     width: 100%;
+}
+
+.pay-btn{
+background-color: #fa6400;
+}
+
+.pay-btn:hover{
+    transform: translateY(-2px);
+    background-color: none;
 }
