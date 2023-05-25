@@ -85,11 +85,12 @@ export async function showFilteredSwimmers() {
     for (const swimmer of array) {
         showSwimmer(swimmer);
     };
-
+if (document.querySelector("#swimmer-select-sort")) {
         document.querySelector("#swimmer-select-sort").addEventListener("change",
-      () => showSortedSwimmers(array, event));
+      () => showSortedSwimmers(array, event));}
+  if (document.querySelector("#swimmer-select-filter")) {
         document.querySelector("#swimmer-select-filter").addEventListener("change",
-      () => showSwimmersFilteredByType(array, event));
+      () => showSwimmersFilteredByType(array, event));}
 }
 
 export async function showSwimmersFilteredByType(array, event){
