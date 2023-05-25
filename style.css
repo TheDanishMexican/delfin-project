@@ -504,16 +504,16 @@ background-color: greenyellow;
   touch-action: manipulation;
   vertical-align: baseline;
 }
-.object-btns:focus {
+.object-btns button:focus {
   background-color: #fb8332;
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
-.object-btns:hover {
+.object-btns button:hover {
   transform: translateY(-2px);
 }
 
-.object-btns:active {
+.object-btns button:active {
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
