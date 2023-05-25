@@ -478,8 +478,8 @@ background-color: greenyellow;
 
 
 .object-btns{
- /* display: grid;
- grid-row: 1fr 1fr; */
+ display: grid;
+ grid-row: 1fr 1fr;
  place-items: center;
 }
 
