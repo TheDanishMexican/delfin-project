@@ -71,7 +71,6 @@ export function showAddResultDialog(obj) {
 
 }
 export function showEditResultDialog(obj){
-  console.log("Slik på mig, så jeg kan svømme hurtigere");
 }
 
 export function closeResultDialog() {
